@@ -1033,10 +1033,10 @@ const exportExcel = async (req, res) => {
 				u: "u16",
 			},
 		];
-		let startBargeLoading = rowCoalReclaiming + 13 + 10;
+		var startBargeLoading = rowCoalReclaiming + 13 + 10;
 
 		for (let i in dataBarge) {
-			startBargeLoading++;
+			startBargeLoading ++;
 			worksheet.getCell("A" + startBargeLoading).value = dataBarge[i].a;
 			worksheet.getCell("A" + startBargeLoading).style = {
 				fill: yellowHeader,
@@ -1144,9 +1144,80 @@ const exportExcel = async (req, res) => {
 			};
 		}
 
-		let startEquipmentDetail = startBargeLoading;
-		let secondEquipmentDetail = startBargeLoading + 1;
+		//Weigher Data
+		worksheet.mergeCells(
+			"O" +
+				(rowCoalReclaiming + 13 + 9) +
+				":" +
+				"R" +
+				(rowCoalReclaiming + 13 + 9)
+		);
+		worksheet.getCell("O" + (rowCoalReclaiming + 13 + 9)).value =
+			"Weigher Data";
+		worksheet.getCell("O" + (rowCoalReclaiming + 13 + 9)).style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("O" + (rowCoalReclaiming + 13 + 10)).value = "Quality";
+		worksheet.getCell("O" + (rowCoalReclaiming + 13 + 10)).style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("P" + (rowCoalReclaiming + 13 + 10)).value = "Start";
+		worksheet.getCell("P" + (rowCoalReclaiming + 13 + 10)).style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("Q" + (rowCoalReclaiming + 13 + 10)).value = "Stop";
+		worksheet.getCell("Q" + (rowCoalReclaiming + 13 + 10)).style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("R" + (rowCoalReclaiming + 13 + 10)).value = "Total";
+		worksheet.getCell("R" + (rowCoalReclaiming + 13 + 10)).style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.mergeCells(
+			"S" +
+				(rowCoalReclaiming + 13 + 9) +
+				":" +
+				"T" +
+				(rowCoalReclaiming + 13 + 10)
+		);
+		worksheet.getCell("S" + (rowCoalReclaiming + 13 + 9)).value =
+			"Tonnes Draft";
+		worksheet.getCell("S" + (rowCoalReclaiming + 13 + 9)).style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.mergeCells(
+			"U" +
+				(rowCoalReclaiming + 13 + 9) +
+				":" +
+				"V" +
+				(rowCoalReclaiming + 13 + 10)
+		);
+		worksheet.getCell("U" + (rowCoalReclaiming + 13 + 9)).value =
+			"Tonnes MCC Recorded";
+		worksheet.getCell("U" + (rowCoalReclaiming + 13 + 9)).style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
 
+		//Equpment Detail
+		let startEquipmentDetail = startBargeLoading + 1;
+		let secondEquipmentDetail = startEquipmentDetail + 1;
+		console.log('startEquipmentDetail '+startEquipmentDetail)
+		console.log('startBargeLoading '+startBargeLoading)
+		console.log('dataBarge '+dataBarge.length)
 		worksheet.mergeCells(
 			"A" + startEquipmentDetail + ":" + "V" + startEquipmentDetail
 		);
@@ -1259,73 +1330,198 @@ const exportExcel = async (req, res) => {
 			border: borderThin,
 			font: fontBold,
 		};
-		//Weigher Data
-		worksheet.mergeCells(
-			"O" +
-				(rowCoalReclaiming + 13 + 9) +
-				":" +
-				"R" +
-				(rowCoalReclaiming + 13 + 9)
-		);
-		worksheet.getCell("O" + (rowCoalReclaiming + 13 + 9)).value =
-			"Weigher Data";
-		worksheet.getCell("O" + (rowCoalReclaiming + 13 + 9)).style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("O" + (rowCoalReclaiming + 13 + 10)).value = "Quality";
-		worksheet.getCell("O" + (rowCoalReclaiming + 13 + 10)).style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("P" + (rowCoalReclaiming + 13 + 10)).value = "Start";
-		worksheet.getCell("P" + (rowCoalReclaiming + 13 + 10)).style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("Q" + (rowCoalReclaiming + 13 + 10)).value = "Stop";
-		worksheet.getCell("Q" + (rowCoalReclaiming + 13 + 10)).style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("R" + (rowCoalReclaiming + 13 + 10)).value = "Total";
-		worksheet.getCell("R" + (rowCoalReclaiming + 13 + 10)).style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.mergeCells(
-			"S" +
-				(rowCoalReclaiming + 13 + 9) +
-				":" +
-				"T" +
-				(rowCoalReclaiming + 13 + 10)
-		);
-		worksheet.getCell("S" + (rowCoalReclaiming + 13 + 9)).value =
-			"Tonnes Draft";
-		worksheet.getCell("S" + (rowCoalReclaiming + 13 + 9)).style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.mergeCells(
-			"U" +
-				(rowCoalReclaiming + 13 + 9) +
-				":" +
-				"V" +
-				(rowCoalReclaiming + 13 + 10)
-		);
-		worksheet.getCell("U" + (rowCoalReclaiming + 13 + 9)).value =
-			"Tonnes MCC Recorded";
-		worksheet.getCell("U" + (rowCoalReclaiming + 13 + 9)).style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
+
+		//eqipment Detail data
+		let dataEquipmentDetail =[
+			{
+				a:'DOZER E529',
+				b:'bed',
+				d:'ded',
+				f:'fed',
+				h:'hed',
+				j:'jed',
+				l:'led',
+				m:'med',
+				o:'oed',
+				q:'qed',
+				s:'sed',
+				u:'ued'
+			},
+			{
+				a:'DOZER E530',
+				b:'bed',
+				d:'ded',
+				f:'fed',
+				h:'hed',
+				j:'jed',
+				l:'led',
+				m:'med',
+				o:'oed',
+				q:'qed',
+				s:'sed',
+				u:'ued'
+			},
+			{
+				a:'DOZER E532',
+				b:'bed',
+				d:'ded',
+				f:'fed',
+				h:'hed',
+				j:'jed',
+				l:'led',
+				m:'med',
+				o:'oed',
+				q:'qed',
+				s:'sed',
+				u:'ued'
+			},
+			{
+				a:'DOZER E557',
+				b:'bed',
+				d:'ded',
+				f:'fed',
+				h:'hed',
+				j:'jed',
+				l:'led',
+				m:'med',
+				o:'oed',
+				q:'qed',
+				s:'sed',
+				u:'ued'
+			},
+			{
+				a:'DOZER E557',
+				b:'bed',
+				d:'ded',
+				f:'fed',
+				h:'hed',
+				j:'jed',
+				l:'led',
+				m:'med',
+				o:'oed',
+				q:'qed',
+				s:'sed',
+				u:'ued'
+			},
+			{
+				a:'DOZER E576',
+				b:'bed',
+				d:'ded',
+				f:'fed',
+				h:'hed',
+				j:'jed',
+				l:'led',
+				m:'med',
+				o:'oed',
+				q:'qed',
+				s:'sed',
+				u:'ued'
+			}
+		]
+
+		let startEquipmentDetailData = secondEquipmentDetail;
+		for(let i in dataEquipmentDetail){
+			startEquipmentDetailData++
+			worksheet.getCell("A"+startEquipmentDetailData).value = dataEquipmentDetail[i].a
+			worksheet.getCell("A"+startEquipmentDetailData).style = {
+				border:borderThin,
+				fill:yellowHeader
+			}
+			worksheet.mergeCells("B"+startEquipmentDetailData+":"+"C"+startEquipmentDetailData)
+			worksheet.getCell("B"+startEquipmentDetailData).value = dataEquipmentDetail[i].b
+			worksheet.getCell("B"+startEquipmentDetailData).style = {
+				border:borderThin,
+				fill:yellowHeader,
+				alignment:textCenter
+			}
+			worksheet.mergeCells("D"+startEquipmentDetailData+":"+"E"+startEquipmentDetailData)
+			worksheet.getCell("D"+startEquipmentDetailData).value = dataEquipmentDetail[i].d
+			worksheet.getCell("D"+startEquipmentDetailData+":"+"E"+startEquipmentDetailData).style = {
+				border:borderThin,
+				fill:yellowHeader,
+				alignment:textCenter
+			}
+			worksheet.mergeCells("F"+startEquipmentDetailData+":"+"G"+startEquipmentDetailData)
+			worksheet.getCell("F"+startEquipmentDetailData).value = dataEquipmentDetail[i].f
+			worksheet.getCell("F"+startEquipmentDetailData).style = {
+				border:borderThin,
+				fill:yellowHeader,
+				alignment:textCenter
+			}
+
+			worksheet.mergeCells("H"+startEquipmentDetailData+":"+"I"+startEquipmentDetailData)
+			worksheet.getCell("H"+startEquipmentDetailData).value = dataEquipmentDetail[i].h
+			worksheet.getCell("H"+startEquipmentDetailData).style = {
+				border:borderThin,
+				fill:yellowHeader,
+				alignment:textCenter
+			}
+			worksheet.mergeCells("J"+startEquipmentDetailData+":"+"K"+startEquipmentDetailData)
+			worksheet.getCell("J"+startEquipmentDetailData).value = dataEquipmentDetail[i].j
+			worksheet.getCell("J"+startEquipmentDetailData).style = {
+				border:borderThin,
+				fill:yellowHeader,
+				alignment:textCenter
+			}
+			worksheet.getCell("L"+startEquipmentDetailData).value = dataEquipmentDetail[i].l
+			worksheet.getCell("L"+startEquipmentDetailData).style = {
+				border:borderThin,
+				fill:yellowHeader,
+				alignment:textCenter
+			}
+			worksheet.mergeCells("M"+startEquipmentDetailData+":"+"N"+startEquipmentDetailData)
+			worksheet.getCell("M"+startEquipmentDetailData).value = dataEquipmentDetail[i].m
+			worksheet.getCell("M"+startEquipmentDetailData).style = {
+				border:borderThin,
+				fill:yellowHeader,
+				alignment:textCenter
+			}
+			worksheet.mergeCells("O"+startEquipmentDetailData+":"+"P"+startEquipmentDetailData)
+			worksheet.getCell("O"+startEquipmentDetailData).value = dataEquipmentDetail[i].o
+			worksheet.getCell("O"+startEquipmentDetailData).style = {
+				border:borderThin,
+				fill:yellowHeader,
+				alignment:textCenter
+			}
+			worksheet.mergeCells("Q"+startEquipmentDetailData+":"+"R"+startEquipmentDetailData)
+			worksheet.getCell("Q"+startEquipmentDetailData).value = dataEquipmentDetail[i].q
+			worksheet.getCell("Q"+startEquipmentDetailData).style = {
+				border:borderThin,
+				fill:yellowHeader,
+				alignment:textCenter
+			}
+			worksheet.mergeCells("S"+startEquipmentDetailData+":"+"T"+startEquipmentDetailData)
+			worksheet.getCell("S"+startEquipmentDetailData).value = dataEquipmentDetail[i].s
+			worksheet.getCell("S"+startEquipmentDetailData).style = {
+				border:borderThin,
+				fill:yellowHeader,
+				alignment:textCenter
+			}
+			worksheet.mergeCells("U"+startEquipmentDetailData+":"+"V"+startEquipmentDetailData)
+			worksheet.getCell("U"+startEquipmentDetailData).value = dataEquipmentDetail[i].u
+			worksheet.getCell("U"+startEquipmentDetailData).style = {
+				border:borderThin,
+				fill:yellowHeader,
+				alignment:textCenter
+			}
+		}
+		// Notes
+		let startNotes = startEquipmentDetailData +1
+		worksheet.mergeCells("A"+startNotes+":"+"V"+startNotes)
+		worksheet.getCell("A"+startNotes).value= 'Notes'
+		worksheet.getCell("A"+startNotes).style={
+			border:borderBold,
+			fill:grayHeader,
+			alignment:textCenter
+		}
+		worksheet.mergeCells("A"+(startNotes + 1)+":"+"V"+(startNotes + 10))
+		worksheet.getCell("A"+(startNotes + 1)).value="ini notes nya summary report"
+		worksheet.getCell("A"+(startNotes + 1)).style = {
+			border:borderThin,
+			fill:yellowHeader,
+			alignment:textLeft
+		}
+
 		//style column
 
 		worksheet.getCell("E3").fill = grayHeader;
@@ -1561,7 +1757,7 @@ const exportExcel = async (req, res) => {
 			alignment: textCenter,
 			border: borderThin,
 		};
-		worksheet.getCell("A11").style = {
+		worksheet.getCell("A11:K11").style = {
 			font: fontBold,
 			alignment: textCenter,
 			fill: grayHeader,

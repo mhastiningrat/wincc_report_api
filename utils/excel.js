@@ -10,6 +10,12 @@ const yellowHeader = {
 	fgColor: { argb: "f7e91e" },
 };
 
+const cocoHeader = {
+	type: "pattern",
+	pattern: "solid",
+	fgColor: { argb: "fac289" },
+};
+
 const fontBold = {
 	bold: true,
 };
@@ -41,4 +47,5 @@ module.exports = {
 	textRight,
 	borderBold,
 	borderThin,
+	cocoHeader
 };
