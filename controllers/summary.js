@@ -916,11 +916,11 @@ const exportExcel = async (req, res) => {
 				(rowCoalReclaiming + 13 + 10)
 		);
 		worksheet.getCell("E" + (rowCoalReclaiming + 13 + 10)).value = "Name";
-		worksheet.getCell("E" + (rowCoalReclaiming + 13 + 10)).style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
+		worksheet.getCell("E" + (rowCoalReclaiming + 13 + 10)).font = fontBold;
+		worksheet.getCell("E" + (rowCoalReclaiming + 13 + 10)).alignment =
+			textCenter;
+		worksheet.getCell("E" + (rowCoalReclaiming + 13 + 10)).border = borderThin;
+
 		worksheet.getCell("G" + (rowCoalReclaiming + 13 + 10)).value =
 			"Along Side (First Line)";
 		worksheet.getCell("G" + (rowCoalReclaiming + 13 + 9)).font = fontBold;
@@ -1415,109 +1415,95 @@ const exportExcel = async (req, res) => {
 			);
 			worksheet.getCell("F" + startEquipmentDetailData).value =
 				dataEquipmentDetail[i].f;
-			worksheet.getCell("F" + startEquipmentDetailData).style = {
-				border: borderThin,
-				fill: yellowHeader,
-				alignment: textCenter,
-			};
+			worksheet.getCell("F" + startEquipmentDetailData).border = borderThin;
+			worksheet.getCell("F" + startEquipmentDetailData).fill = yellowHeader;
+			worksheet.getCell("F" + startEquipmentDetailData).alignment = textCenter;
 
 			worksheet.mergeCells(
 				"H" + startEquipmentDetailData + ":" + "I" + startEquipmentDetailData
 			);
 			worksheet.getCell("H" + startEquipmentDetailData).value =
 				dataEquipmentDetail[i].h;
-			worksheet.getCell("H" + startEquipmentDetailData).style = {
-				border: borderThin,
-				fill: yellowHeader,
-				alignment: textCenter,
-			};
+			worksheet.getCell("H" + startEquipmentDetailData).border = borderThin;
+			worksheet.getCell("H" + startEquipmentDetailData).fill = yellowHeader;
+			worksheet.getCell("H" + startEquipmentDetailData).alignment = textCenter;
+
 			worksheet.mergeCells(
 				"J" + startEquipmentDetailData + ":" + "K" + startEquipmentDetailData
 			);
 			worksheet.getCell("J" + startEquipmentDetailData).value =
 				dataEquipmentDetail[i].j;
-			worksheet.getCell("J" + startEquipmentDetailData).style = {
-				border: borderThin,
-				fill: yellowHeader,
-				alignment: textCenter,
-			};
+			worksheet.getCell("J" + startEquipmentDetailData).border = borderThin;
+			worksheet.getCell("J" + startEquipmentDetailData).fill = yellowHeader;
+			worksheet.getCell("J" + startEquipmentDetailData).alignment = textCenter;
+
 			worksheet.getCell("L" + startEquipmentDetailData).value =
 				dataEquipmentDetail[i].l;
-			worksheet.getCell("L" + startEquipmentDetailData).style = {
-				border: borderThin,
-				fill: yellowHeader,
-				alignment: textCenter,
-			};
+			worksheet.getCell("L" + startEquipmentDetailData).border = borderThin;
+			worksheet.getCell("L" + startEquipmentDetailData).fill = yellowHeader;
+			worksheet.getCell("L" + startEquipmentDetailData).alignment = textCenter;
+
 			worksheet.mergeCells(
 				"M" + startEquipmentDetailData + ":" + "N" + startEquipmentDetailData
 			);
 			worksheet.getCell("M" + startEquipmentDetailData).value =
 				dataEquipmentDetail[i].m;
-			worksheet.getCell("M" + startEquipmentDetailData).style = {
-				border: borderThin,
-				fill: yellowHeader,
-				alignment: textCenter,
-			};
+			worksheet.getCell("M" + startEquipmentDetailData).border = borderThin;
+			worksheet.getCell("M" + startEquipmentDetailData).fill = yellowHeader;
+			worksheet.getCell("M" + startEquipmentDetailData).alignment = textCenter;
+
 			worksheet.mergeCells(
 				"O" + startEquipmentDetailData + ":" + "P" + startEquipmentDetailData
 			);
 			worksheet.getCell("O" + startEquipmentDetailData).value =
 				dataEquipmentDetail[i].o;
-			worksheet.getCell("O" + startEquipmentDetailData).style = {
-				border: borderThin,
-				fill: yellowHeader,
-				alignment: textCenter,
-			};
+			worksheet.getCell("O" + startEquipmentDetailData).border = borderThin;
+			worksheet.getCell("O" + startEquipmentDetailData).fill = yellowHeader;
+			worksheet.getCell("O" + startEquipmentDetailData).alignment = textCenter;
+
 			worksheet.mergeCells(
 				"Q" + startEquipmentDetailData + ":" + "R" + startEquipmentDetailData
 			);
 			worksheet.getCell("Q" + startEquipmentDetailData).value =
 				dataEquipmentDetail[i].q;
-			worksheet.getCell("Q" + startEquipmentDetailData).style = {
-				border: borderThin,
-				fill: yellowHeader,
-				alignment: textCenter,
-			};
+			worksheet.getCell("Q" + startEquipmentDetailData).border = borderThin;
+			worksheet.getCell("Q" + startEquipmentDetailData).fill = yellowHeader;
+			worksheet.getCell("Q" + startEquipmentDetailData).alignment = textCenter;
+
 			worksheet.mergeCells(
 				"S" + startEquipmentDetailData + ":" + "T" + startEquipmentDetailData
 			);
 			worksheet.getCell("S" + startEquipmentDetailData).value =
 				dataEquipmentDetail[i].s;
-			worksheet.getCell("S" + startEquipmentDetailData).style = {
-				border: borderThin,
-				fill: yellowHeader,
-				alignment: textCenter,
-			};
+			worksheet.getCell("S" + startEquipmentDetailData).border = borderThin;
+			worksheet.getCell("S" + startEquipmentDetailData).fill = yellowHeader;
+			worksheet.getCell("S" + startEquipmentDetailData).alignment = textCenter;
+
 			worksheet.mergeCells(
 				"U" + startEquipmentDetailData + ":" + "V" + startEquipmentDetailData
 			);
 			worksheet.getCell("U" + startEquipmentDetailData).value =
 				dataEquipmentDetail[i].u;
-			worksheet.getCell("U" + startEquipmentDetailData).style = {
-				border: borderThin,
-				fill: yellowHeader,
-				alignment: textCenter,
-			};
+			worksheet.getCell("U" + startEquipmentDetailData).border = borderThin;
+			worksheet.getCell("U" + startEquipmentDetailData).fill = yellowHeader;
+			worksheet.getCell("U" + startEquipmentDetailData).alignment = textCenter;
 		}
 		// Notes
 		let startNotes = startEquipmentDetailData + 1;
 		worksheet.mergeCells("A" + startNotes + ":" + "V" + startNotes);
 		worksheet.getCell("A" + startNotes).value = "Notes";
-		worksheet.getCell("A" + startNotes).style = {
-			border: borderBold,
-			fill: grayHeader,
-			alignment: textCenter,
-		};
+		worksheet.getCell("A" + startNotes).border = borderBold;
+		worksheet.getCell("A" + startNotes).fill = grayHeader;
+		worksheet.getCell("A" + startNotes).alignment = textCenter;
+
 		worksheet.mergeCells(
 			"A" + (startNotes + 1) + ":" + "V" + (startNotes + 10)
 		);
 		worksheet.getCell("A" + (startNotes + 1)).value =
 			"ini notes nya summary report";
-		worksheet.getCell("A" + (startNotes + 1)).style = {
-			border: borderThin,
-			fill: yellowHeader,
-			alignment: textLeft,
-		};
+		worksheet.getCell("A" + (startNotes + 1)).border = borderThin;
+		worksheet.getCell("A" + (startNotes + 1)).fill = yellowHeader;
+		worksheet.getCell("A" + (startNotes + 1)).alignment = textLeft;
 
 		//style column
 
@@ -1552,555 +1538,443 @@ const exportExcel = async (req, res) => {
 		worksheet.getCell("A8").border = borderThin;
 
 		// column for title
-		worksheet.getCell("D4").style = {
-			font: fontBold,
-			alignment: textLeft,
-			border: borderThin,
-		};
-		worksheet.getCell("D5").style = {
-			font: fontBold,
-			alignment: textLeft,
-			border: borderThin,
-		};
-		worksheet.getCell("D6").style = {
-			font: fontBold,
-			alignment: textLeft,
-			border: borderThin,
-		};
-		worksheet.getCell("D7").style = {
-			font: fontBold,
-			alignment: textLeft,
-			border: borderThin,
-		};
-		worksheet.getCell("D8").style = {
-			font: fontBold,
-			alignment: textLeft,
-			border: borderThin,
-		};
-		worksheet.getCell("D9").style = {
-			font: fontBold,
-			alignment: textLeft,
-			border: borderThin,
-		};
-		worksheet.getCell("D10").style = {
-			font: fontBold,
-			alignment: textLeft,
-			border: borderThin,
-		};
-		worksheet.getCell("G4").style = {
-			font: fontBold,
-			alignment: textLeft,
-			border: borderThin,
-		};
-		worksheet.getCell("G5").style = {
-			font: fontBold,
-			alignment: textLeft,
-			border: borderThin,
-		};
-		worksheet.getCell("G6").style = {
-			font: fontBold,
-			alignment: textLeft,
-			border: borderThin,
-		};
-		worksheet.getCell("G7").style = {
-			font: fontBold,
-			alignment: textLeft,
-			border: borderThin,
-		};
-		worksheet.getCell("G8").style = {
-			font: fontBold,
-			alignment: textLeft,
-			border: borderThin,
-		};
-		worksheet.getCell("G9").style = {
-			font: fontBold,
-			alignment: textLeft,
-			border: borderThin,
-		};
-		worksheet.getCell("G10").style = {
-			font: fontBold,
-			alignment: textLeft,
-			border: borderThin,
-		};
-		worksheet.getCell("J4").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("K4").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("L4").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("M4").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("N4").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("J5").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("J7").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("J9").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
+		worksheet.getCell("D4").font = fontBold;
+		worksheet.getCell("D4").alignment = textLeft;
+		worksheet.getCell("D4").border = borderThin;
 
-		worksheet.getCell("O4").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("O5").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("O7").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("O9").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-			fill: yellowHeader,
-		};
-		worksheet.getCell("P5").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("Q5").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("R5").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("S4").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("S5").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("T5").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("U5").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("V5").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("W4").style = {
-			fill: yellowHeader,
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("W5").style = {
-			fill: yellowHeader,
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("X5").style = {
-			fill: yellowHeader,
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("Y5").style = {
-			fill: yellowHeader,
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("Z5").style = {
-			fill: yellowHeader,
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("A11:K11").style = {
-			font: fontBold,
-			alignment: textCenter,
-			fill: grayHeader,
-			border: borderThin,
-		};
-		worksheet.getCell("L11").style = {
-			font: fontBold,
-			alignment: textCenter,
-			fill: grayHeader,
-			border: borderThin,
-		};
-		worksheet.getCell("A12").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("B12").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("D12").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("F12").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("H12").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("J12").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("B13").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("C13").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("D13").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("E13").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("F13").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("G13").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("H13").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("I13").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("J13").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("K13").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("L12").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("M12").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("O12").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("Q12").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("S12").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("U12").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("O13").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("P13").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("Q13").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("R13").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("S13").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("T13").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("U13").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("V13").style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
+		worksheet.getCell("D5").font = fontBold;
+		worksheet.getCell("D5").alignment = textLeft;
+		worksheet.getCell("D5").border = borderThin;
+
+		worksheet.getCell("D6").font = fontBold;
+		worksheet.getCell("D6").alignment = textLeft;
+		worksheet.getCell("D6").border = borderThin;
+
+		worksheet.getCell("D7").font = fontBold;
+		worksheet.getCell("D7").alignment = textLeft;
+		worksheet.getCell("D7").border = borderThin;
+
+		worksheet.getCell("D8").font = fontBold;
+		worksheet.getCell("D8").alignment = textLeft;
+		worksheet.getCell("D8").border = borderThin;
+
+		worksheet.getCell("D9").font = fontBold;
+		worksheet.getCell("D9").alignment = textLeft;
+		worksheet.getCell("D9").border = borderThin;
+
+		worksheet.getCell("D10").font = fontBold;
+		worksheet.getCell("D10").alignment = textLeft;
+		worksheet.getCell("D10").border = borderThin;
+
+		worksheet.getCell("G4").font = fontBold;
+		worksheet.getCell("G4").alignment = textLeft;
+		worksheet.getCell("G4").border = borderThin;
+
+		worksheet.getCell("G5").font = fontBold;
+		worksheet.getCell("G5").alignment = textLeft;
+		worksheet.getCell("G5").border = borderThin;
+
+		worksheet.getCell("G6").font = fontBold;
+		worksheet.getCell("G6").alignment = textLeft;
+		worksheet.getCell("G6").border = borderThin;
+
+		worksheet.getCell("G7").font = fontBold;
+		worksheet.getCell("G7").alignment = textLeft;
+		worksheet.getCell("G7").border = borderThin;
+
+		worksheet.getCell("G8").font = fontBold;
+		worksheet.getCell("G8").alignment = textLeft;
+		worksheet.getCell("G8").border = borderThin;
+
+		worksheet.getCell("G9").font = fontBold;
+		worksheet.getCell("G9").alignment = textLeft;
+		worksheet.getCell("G9").border = borderThin;
+
+		worksheet.getCell("G10").font = fontBold;
+		worksheet.getCell("G10").alignment = textLeft;
+		worksheet.getCell("G10").border = borderThin;
+
+		worksheet.getCell("J4").font = fontBold;
+		worksheet.getCell("J4").alignment = textCenter;
+		worksheet.getCell("J4").border = borderThin;
+
+		worksheet.getCell("K4").font = fontBold;
+		worksheet.getCell("K4").alignment = textCenter;
+		worksheet.getCell("K4").border = borderThin;
+
+		worksheet.getCell("L4").font = fontBold;
+		worksheet.getCell("L4").alignment = textCenter;
+		worksheet.getCell("L4").border = borderThin;
+
+		worksheet.getCell("M4").font = fontBold;
+		worksheet.getCell("M4").alignment = textCenter;
+		worksheet.getCell("M4").border = borderThin;
+
+		worksheet.getCell("N4").font = fontBold;
+		worksheet.getCell("N4").alignment = textCenter;
+		worksheet.getCell("N4").border = borderThin;
+
+		worksheet.getCell("J5").font = fontBold;
+		worksheet.getCell("J5").alignment = textCenter;
+		worksheet.getCell("J5").border = borderThin;
+
+		worksheet.getCell("J7").font = fontBold;
+		worksheet.getCell("J7").alignment = textCenter;
+		worksheet.getCell("J7").border = borderThin;
+
+		worksheet.getCell("J9").font = fontBold;
+		worksheet.getCell("J9").alignment = textCenter;
+		worksheet.getCell("J9").border = borderThin;
+
+		worksheet.getCell("O4").font = fontBold;
+		worksheet.getCell("O4").alignment = textCenter;
+		worksheet.getCell("O4").border = borderThin;
+
+		worksheet.getCell("O5").font = fontBold;
+		worksheet.getCell("O5").alignment = textCenter;
+		worksheet.getCell("O5").border = borderThin;
+
+		worksheet.getCell("O7").font = fontBold;
+		worksheet.getCell("O7").alignment = textCenter;
+		worksheet.getCell("O7").border = borderThin;
+
+		worksheet.getCell("O9").font = fontBold;
+		worksheet.getCell("O9").alignment = textCenter;
+		worksheet.getCell("O9").border = borderThin;
+		worksheet.getCell("O9").fill = yellowHeader;
+
+		worksheet.getCell("P5").font = fontBold;
+		worksheet.getCell("P5").alignment = textCenter;
+		worksheet.getCell("P5").border = borderThin;
+
+		worksheet.getCell("Q5").font = fontBold;
+		worksheet.getCell("Q5").alignment = textCenter;
+		worksheet.getCell("Q5").border = borderThin;
+
+		worksheet.getCell("R5").font = fontBold;
+		worksheet.getCell("R5").alignment = textCenter;
+		worksheet.getCell("R5").border = borderThin;
+
+		worksheet.getCell("S4").font = fontBold;
+		worksheet.getCell("S4").alignment = textCenter;
+		worksheet.getCell("S4").border = borderThin;
+
+		worksheet.getCell("S5").font = fontBold;
+		worksheet.getCell("S5").alignment = textCenter;
+		worksheet.getCell("S5").border = borderThin;
+
+		worksheet.getCell("T5").font = fontBold;
+		worksheet.getCell("T5").alignment = textCenter;
+		worksheet.getCell("T5").border = borderThin;
+
+		worksheet.getCell("U5").font = fontBold;
+		worksheet.getCell("U5").alignment = textCenter;
+		worksheet.getCell("U5").border = borderThin;
+
+		worksheet.getCell("V5").font = fontBold;
+		worksheet.getCell("V5").alignment = textCenter;
+		worksheet.getCell("V5").border = borderThin;
+
+		worksheet.getCell("W4").fill = yellowHeader;
+		worksheet.getCell("W4").font = fontBold;
+		worksheet.getCell("W4").alignment = textCenter;
+		worksheet.getCell("W4").border = borderThin;
+
+		worksheet.getCell("W5").fill = yellowHeader;
+		worksheet.getCell("W5").font = fontBold;
+		worksheet.getCell("W5").alignment = textCenter;
+		worksheet.getCell("W5").border = borderThin;
+
+		worksheet.getCell("X5").fill = yellowHeader;
+		worksheet.getCell("X5").font = fontBold;
+		worksheet.getCell("X5").alignment = textCenter;
+		worksheet.getCell("X5").border = borderThin;
+
+		worksheet.getCell("Y5").fill = yellowHeader;
+		worksheet.getCell("Y5").font = fontBold;
+		worksheet.getCell("Y5").alignment = textCenter;
+		worksheet.getCell("Y5").border = borderThin;
+
+		worksheet.getCell("Z5").fill = yellowHeader;
+		worksheet.getCell("Z5").font = fontBold;
+		worksheet.getCell("Z5").alignment = textCenter;
+		worksheet.getCell("Z5").border = borderThin;
+
+		worksheet.getCell("A11").font = fontBold;
+		worksheet.getCell("A11").alignment = textCenter;
+		worksheet.getCell("A11").fill = grayHeader;
+		worksheet.getCell("A11").border = borderThin;
+		// worksheet.getCell("A11:K11").style = {
+		// 	font: fontBold,
+		// 	alignment: textCenter,
+		// 	fill: grayHeader,
+		// 	border: borderThin,
+		// };
+		worksheet.getCell("L11").font = fontBold;
+		worksheet.getCell("L11").alignment = textCenter;
+		worksheet.getCell("L11").fill = grayHeader;
+		worksheet.getCell("L11").border = borderThin;
+
+		worksheet.getCell("A12").font = fontBold;
+		worksheet.getCell("A12").alignment = textCenter;
+		worksheet.getCell("A12").border = borderThin;
+
+		worksheet.getCell("B12").font = fontBold;
+		worksheet.getCell("B12").alignment = textCenter;
+		worksheet.getCell("B12").border = borderThin;
+
+		worksheet.getCell("D12").font = fontBold;
+		worksheet.getCell("D12").alignment = textCenter;
+		worksheet.getCell("D12").border = borderThin;
+
+		worksheet.getCell("F12").font = fontBold;
+		worksheet.getCell("F12").alignment = textCenter;
+		worksheet.getCell("F12").border = borderThin;
+
+		worksheet.getCell("H12").font = fontBold;
+		worksheet.getCell("H12").alignment = textCenter;
+		worksheet.getCell("H12").border = borderThin;
+
+		worksheet.getCell("J12").font = fontBold;
+		worksheet.getCell("J12").alignment = textCenter;
+		worksheet.getCell("J12").border = borderThin;
+
+		worksheet.getCell("B13").font = fontBold;
+		worksheet.getCell("B13").alignment = textCenter;
+		worksheet.getCell("B13").border = borderThin;
+
+		worksheet.getCell("C13").font = fontBold;
+		worksheet.getCell("C13").alignment = textCenter;
+		worksheet.getCell("C13").border = borderThin;
+
+		worksheet.getCell("D13").font = fontBold;
+		worksheet.getCell("D13").alignment = textCenter;
+		worksheet.getCell("D13").border = borderThin;
+
+		worksheet.getCell("E13").font = fontBold;
+		worksheet.getCell("E13").alignment = textCenter;
+		worksheet.getCell("E13").border = borderThin;
+
+		worksheet.getCell("F13").font = fontBold;
+		worksheet.getCell("F13").alignment = textCenter;
+		worksheet.getCell("F13").border = borderThin;
+
+		worksheet.getCell("G13").font = fontBold;
+		worksheet.getCell("G13").alignment = textCenter;
+		worksheet.getCell("G13").border = borderThin;
+
+		worksheet.getCell("H13").font = fontBold;
+		worksheet.getCell("H13").alignment = textCenter;
+		worksheet.getCell("H13").border = borderThin;
+
+		worksheet.getCell("I13").font = fontBold;
+		worksheet.getCell("I13").alignment = textCenter;
+		worksheet.getCell("I13").border = borderThin;
+
+		worksheet.getCell("J13").font = fontBold;
+		worksheet.getCell("J13").alignment = textCenter;
+		worksheet.getCell("J13").border = borderThin;
+
+		worksheet.getCell("K13").font = fontBold;
+		worksheet.getCell("K13").alignment = textCenter;
+		worksheet.getCell("K13").border = borderThin;
+
+		worksheet.getCell("L12").font = fontBold;
+		worksheet.getCell("L12").alignment = textCenter;
+		worksheet.getCell("L12").border = borderThin;
+
+		worksheet.getCell("M12").font = fontBold;
+		worksheet.getCell("M12").alignment = textCenter;
+		worksheet.getCell("M12").border = borderThin;
+
+		worksheet.getCell("O12").font = fontBold;
+		worksheet.getCell("O12").alignment = textCenter;
+		worksheet.getCell("O12").border = borderThin;
+
+		worksheet.getCell("Q12").font = fontBold;
+		worksheet.getCell("Q12").alignment = textCenter;
+		worksheet.getCell("Q12").border = borderThin;
+
+		worksheet.getCell("S12").font = fontBold;
+		worksheet.getCell("S12").alignment = textCenter;
+		worksheet.getCell("S12").border = borderThin;
+
+		worksheet.getCell("U12").font = fontBold;
+		worksheet.getCell("U12").alignment = textCenter;
+		worksheet.getCell("U12").border = borderThin;
+
+		worksheet.getCell("O13").font = fontBold;
+		worksheet.getCell("O13").alignment = textCenter;
+		worksheet.getCell("O13").border = borderThin;
+
+		worksheet.getCell("P13").font = fontBold;
+		worksheet.getCell("P13").alignment = textCenter;
+		worksheet.getCell("P13").border = borderThin;
+
+		worksheet.getCell("Q13").font = fontBold;
+		worksheet.getCell("Q13").alignment = textCenter;
+		worksheet.getCell("Q13").border = borderThin;
+
+		worksheet.getCell("R13").font = fontBold;
+		worksheet.getCell("R13").alignment = textCenter;
+		worksheet.getCell("R13").border = borderThin;
+
+		worksheet.getCell("S13").font = fontBold;
+		worksheet.getCell("S13").alignment = textCenter;
+		worksheet.getCell("S13").border = borderThin;
+
+		worksheet.getCell("T13").font = fontBold;
+		worksheet.getCell("T13").alignment = textCenter;
+		worksheet.getCell("T13").border = borderThin;
+
+		worksheet.getCell("U13").font = fontBold;
+		worksheet.getCell("U13").alignment = textCenter;
+		worksheet.getCell("U13").border = borderThin;
+
+		worksheet.getCell("V13").font = fontBold;
+		worksheet.getCell("V13").alignment = textCenter;
+		worksheet.getCell("V13").border = borderThin;
 
 		//column for data
-		worksheet.getCell("B4").style = {
-			border: borderThin,
-			alignment: textCenter,
-		};
-		worksheet.getCell("B6").style = {
-			border: borderThin,
-			alignment: textCenter,
-		};
-		worksheet.getCell("B8").style = {
-			border: borderThin,
-			alignment: textCenter,
-		};
-		worksheet.getCell("E4").style = {
-			border: borderThin,
-			alignment: textCenter,
-		};
-		worksheet.getCell("E5").style = {
-			border: borderThin,
-			alignment: textCenter,
-		};
-		worksheet.getCell("E6").style = {
-			border: borderThin,
-			alignment: textCenter,
-		};
-		worksheet.getCell("E7").style = {
-			border: borderThin,
-			alignment: textCenter,
-		};
-		worksheet.getCell("E8").style = {
-			border: borderThin,
-			alignment: textCenter,
-		};
-		worksheet.getCell("E9").style = {
-			border: borderThin,
-			alignment: textCenter,
-		};
-		worksheet.getCell("E10").style = {
-			border: borderThin,
-			alignment: textCenter,
-		};
-		worksheet.getCell("H4").style = {
-			border: borderThin,
-			alignment: textCenter,
-		};
-		worksheet.getCell("H5").style = {
-			border: borderThin,
-			alignment: textCenter,
-		};
-		worksheet.getCell("H6").style = {
-			border: borderThin,
-			alignment: textCenter,
-		};
-		worksheet.getCell("H7").style = {
-			border: borderThin,
-			alignment: textCenter,
-		};
-		worksheet.getCell("H8").style = {
-			border: borderThin,
-			alignment: textCenter,
-		};
-		worksheet.getCell("H9").style = {
-			border: borderThin,
-			alignment: textCenter,
-		};
-		worksheet.getCell("H10").style = {
-			border: borderThin,
-			alignment: textCenter,
-		};
-		worksheet.getCell("K5").style = {
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("K7").style = {
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("L5").style = {
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("L7").style = {
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("M5").style = {
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("M7").style = {
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("N5").style = {
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("N7").style = {
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("N9").style = {
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("O6").style = {
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("P6").style = {
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("Q4").style = {
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("Q6").style = {
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("R6").style = {
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("S6").style = {
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("T6").style = {
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("U4").style = {
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("U6").style = {
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("V6").style = {
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("S7").style = {
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("S9").style = {
-			fill: yellowHeader,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("W6").style = {
-			fill: yellowHeader,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("X6").style = {
-			fill: yellowHeader,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("Y4").style = {
-			fill: yellowHeader,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("Y6").style = {
-			fill: yellowHeader,
-			alignment: textCenter,
-			border: borderThin,
-		};
-		worksheet.getCell("Z6").style = {
-			fill: yellowHeader,
-			alignment: textCenter,
-			border: borderThin,
-		};
+		worksheet.getCell("B4").border = borderThin;
+		worksheet.getCell("B4").alignment = textCenter;
+
+		worksheet.getCell("B6").border = borderThin;
+		worksheet.getCell("B6").alignment = textCenter;
+
+		worksheet.getCell("B8").border = borderThin;
+		worksheet.getCell("B8").alignment = textCenter;
+
+		worksheet.getCell("E4").border = borderThin;
+		worksheet.getCell("E4").alignment = textCenter;
+
+		worksheet.getCell("E5").border = borderThin;
+		worksheet.getCell("E5").alignment = textCenter;
+
+		worksheet.getCell("E6").border = borderThin;
+		worksheet.getCell("E6").alignment = textCenter;
+
+		worksheet.getCell("E7").border = borderThin;
+		worksheet.getCell("E7").alignment = textCenter;
+
+		worksheet.getCell("E8").border = borderThin;
+		worksheet.getCell("E8").alignment = textCenter;
+
+		worksheet.getCell("E9").border = borderThin;
+		worksheet.getCell("E9").alignment = textCenter;
+
+		worksheet.getCell("E10").border = borderThin;
+		worksheet.getCell("E10").alignment = textCenter;
+
+		worksheet.getCell("H4").border = borderThin;
+		worksheet.getCell("H4").alignment = textCenter;
+
+		worksheet.getCell("H5").border = borderThin;
+		worksheet.getCell("H5").alignment = textCenter;
+
+		worksheet.getCell("H6").border = borderThin;
+		worksheet.getCell("H6").alignment = textCenter;
+
+		worksheet.getCell("H7").border = borderThin;
+		worksheet.getCell("H7").alignment = textCenter;
+
+		worksheet.getCell("H8").border = borderThin;
+		worksheet.getCell("H8").alignment = textCenter;
+
+		worksheet.getCell("H9").border = borderThin;
+		worksheet.getCell("H9").alignment = textCenter;
+
+		worksheet.getCell("H10").border = borderThin;
+		worksheet.getCell("H10").alignment = textCenter;
+
+		worksheet.getCell("K5").border = borderThin;
+		worksheet.getCell("K5").alignment = textCenter;
+
+		worksheet.getCell("K7").border = borderThin;
+		worksheet.getCell("K7").alignment = textCenter;
+
+		worksheet.getCell("L5").border = borderThin;
+		worksheet.getCell("L5").alignment = textCenter;
+
+		worksheet.getCell("L7").border = borderThin;
+		worksheet.getCell("L7").alignment = textCenter;
+
+		worksheet.getCell("M5").border = borderThin;
+		worksheet.getCell("M5").alignment = textCenter;
+
+		worksheet.getCell("M7").border = borderThin;
+		worksheet.getCell("M7").alignment = textCenter;
+
+		worksheet.getCell("N5").border = borderThin;
+		worksheet.getCell("N5").alignment = textCenter;
+
+		worksheet.getCell("N7").border = borderThin;
+		worksheet.getCell("N7").alignment = textCenter;
+
+		worksheet.getCell("N9").border = borderThin;
+		worksheet.getCell("N9").alignment = textCenter;
+
+		worksheet.getCell("O6").border = borderThin;
+		worksheet.getCell("O6").alignment = textCenter;
+
+		worksheet.getCell("P6").border = borderThin;
+		worksheet.getCell("P6").alignment = textCenter;
+
+		worksheet.getCell("Q4").border = borderThin;
+		worksheet.getCell("Q4").alignment = textCenter;
+
+		worksheet.getCell("Q6").border = borderThin;
+		worksheet.getCell("Q6").alignment = textCenter;
+
+		worksheet.getCell("R6").border = borderThin;
+		worksheet.getCell("R6").alignment = textCenter;
+
+		worksheet.getCell("S6").border = borderThin;
+		worksheet.getCell("S6").alignment = textCenter;
+
+		worksheet.getCell("T6").border = borderThin;
+		worksheet.getCell("T6").alignment = textCenter;
+
+		worksheet.getCell("U4").border = borderThin;
+		worksheet.getCell("U4").alignment = textCenter;
+
+		worksheet.getCell("U6").border = borderThin;
+		worksheet.getCell("U6").alignment = textCenter;
+
+		worksheet.getCell("V6").border = borderThin;
+		worksheet.getCell("V6").alignment = textCenter;
+
+		worksheet.getCell("S7").border = borderThin;
+		worksheet.getCell("S7").alignment = textCenter;
+
+		worksheet.getCell("S9").fill = yellowHeader;
+		worksheet.getCell("S9").alignment = textCenter;
+		worksheet.getCell("S9").border = borderThin;
+
+		worksheet.getCell("W6").fill = yellowHeader;
+		worksheet.getCell("W6").alignment = textCenter;
+		worksheet.getCell("W6").border = borderThin;
+
+		worksheet.getCell("X6").fill = yellowHeader;
+		worksheet.getCell("X6").alignment = textCenter;
+		worksheet.getCell("X6").border = borderThin;
+
+		worksheet.getCell("Y4").fill = yellowHeader;
+		worksheet.getCell("Y4").alignment = textCenter;
+		worksheet.getCell("Y4").border = borderThin;
+
+		worksheet.getCell("Y6").fill = yellowHeader;
+		worksheet.getCell("Y6").alignment = textCenter;
+		worksheet.getCell("Y6").border = borderThin;
+
+		worksheet.getCell("Z6").fill = yellowHeader;
+		worksheet.getCell("Z6").alignment = textCenter;
+		worksheet.getCell("Z6").border = borderThin;
 
 		let datePrint = `${moment().format("YYYYMMDD")}_${moment().format(
 			"HHmmss"
 		)}`;
-		const direct = "/tmp";
+		const direct = "./tmp";
 		await workbook.xlsx
 			.writeFile(
 				`${direct}/COAL_TERMINAL_SUMMARY_REPORT_12_HOURS_SHIFT_PAGE_1_${datePrint}.xlsx`
