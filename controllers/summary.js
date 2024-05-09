@@ -2344,7 +2344,7 @@ const exportExcelPage2 = async (req, res) => {
 		let datePrint = `${moment().format("YYYYMMDD")}_${moment().format(
 			"HHmmss"
 		)}`;
-		const direct = path.join(__dirname, "");
+		const direct = __dirname;
 		await wb.xlsx
 			.writeFile(
 				`${direct}/COAL_TERMINAL_SUMMARY_REPORT_12_HOURS_SHIFT_PAGE_2_${datePrint}.xlsx`
