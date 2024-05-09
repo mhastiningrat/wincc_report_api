@@ -2348,6 +2348,7 @@ const exportExcelPage2 = async (req, res) => {
 				`${path}/COAL_TERMINAL_SUMMARY_REPORT_12_HOURS_SHIFT_PAGE_2_${datePrint}.xlsx`
 			)
 			.then(() => {
+				console.log("HARUS NYA SIH UDA BISA DOWNLOAD YA");
 				res.download(
 					`${path}/COAL_TERMINAL_SUMMARY_REPORT_12_HOURS_SHIFT_PAGE_2_${datePrint}.xlsx`,
 					`COAL_TERMINAL_SUMMARY_REPORT_12_HOURS_SHIFT_PAGE_2_${datePrint}.xlsx`,
