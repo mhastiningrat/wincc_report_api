@@ -17,7 +17,6 @@ const exportExcel = async (req, res) => {
 		const ws = wb.addWorksheet("New Sheet", {
 			properties: { tabColor: { argb: "FFC0000" } },
 		});
-		const path = "./file";
 
 		// tail olc 1 header
 		ws.mergeCells("B5:K5");

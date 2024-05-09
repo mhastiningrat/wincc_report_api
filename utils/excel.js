@@ -16,6 +16,30 @@ const cocoHeader = {
 	fgColor: { argb: "fac289" },
 };
 
+const leafHeader = {
+	type: "pattern",
+	pattern: "solid",
+	fgColor: { argb: "2bb550" },
+};
+
+const oceanHeader = {
+	type: "pattern",
+	pattern: "solid",
+	fgColor: { argb: "21dffc" },
+};
+
+const oceanMudaHeader = {
+	type: "pattern",
+	pattern: "solid",
+	fgColor: { argb: "b7e6ed" },
+};
+
+const toscaHeader = {
+	type: "pattern",
+	pattern: "solid",
+	fgColor: { argb: "c6f5e6" },
+};
+
 const fontBold = {
 	bold: true,
 };
@@ -46,6 +70,8 @@ const borderThin = {
 module.exports = {
 	grayHeader,
 	yellowHeader,
+	leafHeader,
+	oceanHeader,
 	fontBold,
 	textCenter,
 	textLeft,
@@ -54,4 +80,6 @@ module.exports = {
 	borderThin,
 	cocoHeader,
 	fontBolder,
+	oceanMudaHeader,
+	toscaHeader,
 };
