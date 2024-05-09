@@ -19,7 +19,7 @@ const exportExcel = async (req, res) => {
 		const worksheet = workbook.addWorksheet("New Sheet", {
 			properties: { tabColor: { argb: "FFC0000" } },
 		});
-		const path = "../file";
+		const path = "./public";
 		// creating header column
 		worksheet.mergeCells("A1:U1");
 		worksheet.getCell("A1").value =
@@ -2130,7 +2130,7 @@ const exportExcelPage2 = async (req, res) => {
 		const ws = wb.addWorksheet("Page 2", {
 			properties: { tabColor: { argb: "FFC0000" } },
 		});
-		const path = "../file";
+		const path = "./public";
 
 		ws.mergeCells("A1:U1");
 		ws.getCell("A1").value = "COAL TERMINAL SUMMARY REPORT 12 HOURS SHIFT";
@@ -2345,19 +2345,19 @@ const exportExcelPage2 = async (req, res) => {
 		)}`;
 		await wb.xlsx
 			.writeFile(
-				`COAL_TERMINAL_SUMMARY_REPORT_12_HOURS_SHIFT_PAGE_2_${datePrint}.xlsx`
+				`${path}/COAL_TERMINAL_SUMMARY_REPORT_12_HOURS_SHIFT_PAGE_2_${datePrint}.xlsx`
 			)
 			.then(() => {
 				console.log("HARUS NYA SIH UDA BISA DOWNLOAD YA");
 				res.download(
-					`./COAL_TERMINAL_SUMMARY_REPORT_12_HOURS_SHIFT_PAGE_2_${datePrint}.xlsx`,
+					`${path}/COAL_TERMINAL_SUMMARY_REPORT_12_HOURS_SHIFT_PAGE_2_${datePrint}.xlsx`,
 					`COAL_TERMINAL_SUMMARY_REPORT_12_HOURS_SHIFT_PAGE_2_${datePrint}.xlsx`,
 					(err) => {
 						if (err) {
 							console.log(err);
 						} else {
 							fs.unlinkSync(
-								`./COAL_TERMINAL_SUMMARY_REPORT_12_HOURS_SHIFT_PAGE_2_${datePrint}.xlsx`
+								`${path}/COAL_TERMINAL_SUMMARY_REPORT_12_HOURS_SHIFT_PAGE_2_${datePrint}.xlsx`
 							);
 						}
 					}
