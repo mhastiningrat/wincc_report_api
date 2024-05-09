@@ -2349,19 +2349,20 @@ const exportExcelPage2 = async (req, res) => {
 			)
 			.then(() => {
 				console.log("HARUS NYA SIH UDA BISA DOWNLOAD YA");
-				res.download(
-					`${path}/COAL_TERMINAL_SUMMARY_REPORT_12_HOURS_SHIFT_PAGE_2_${datePrint}.xlsx`,
-					`COAL_TERMINAL_SUMMARY_REPORT_12_HOURS_SHIFT_PAGE_2_${datePrint}.xlsx`,
-					(err) => {
-						if (err) {
-							console.log(err);
-						} else {
-							fs.unlinkSync(
-								`${path}/COAL_TERMINAL_SUMMARY_REPORT_12_HOURS_SHIFT_PAGE_2_${datePrint}.xlsx`
-							);
-						}
-					}
-				);
+				// res.download(
+				// 	`${path}/COAL_TERMINAL_SUMMARY_REPORT_12_HOURS_SHIFT_PAGE_2_${datePrint}.xlsx`,
+				// 	`COAL_TERMINAL_SUMMARY_REPORT_12_HOURS_SHIFT_PAGE_2_${datePrint}.xlsx`,
+				// 	(err) => {
+				// 		if (err) {
+				// 			console.log(err);
+				// 		} else {
+				// 			fs.unlinkSync(
+				// 				`${path}/COAL_TERMINAL_SUMMARY_REPORT_12_HOURS_SHIFT_PAGE_2_${datePrint}.xlsx`
+				// 			);
+				// 		}
+				// 	}
+				// );
+				res.json({ message: "success" });
 			});
 	} catch (error) {}
 };
