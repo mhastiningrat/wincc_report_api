@@ -9,6 +9,7 @@ const {
 	yellowHeader,
 	textRight,
 } = require("../utils/excel");
+const moment = require("moment");
 
 const exportExcel = async (req, res) => {
 	try {
@@ -1254,19 +1255,25 @@ const exportExcel = async (req, res) => {
 		ws.getCell("T" + startTotalReclaiming).border = borderThin;
 		ws.getCell("T" + startTotalReclaiming).font = fontBold;
 
-		await wb.xlsx.writeFile(`${path}/weigher_report.xlsx`).then(() => {
-			res.download(
-				`${path}/weigher_report.xlsx`,
-				"weigher_report.xlsx",
-				(err) => {
-					if (err) {
-						console.log(err);
-					} else {
-						fs.unlinkSync(`${path}/weigher_report.xlsx`);
+		let datePrint = `${moment().format("YYYYMMDD")}_${moment().format(
+			"HHmmss"
+		)}`;
+		const direct = "/tmp";
+		await wb.xlsx
+			.writeFile(`${direct}/WEIGHER_REPORT_${datePrint}.xlsx`)
+			.then(() => {
+				res.download(
+					`${direct}/WEIGHER_REPORT_${datePrint}.xlsx`,
+					`WEIGHER_REPORT_${datePrint}.xlsx`,
+					(err) => {
+						if (err) {
+							console.log(err);
+						} else {
+							fs.unlinkSync(`${direct}/WEIGHER_REPORT_${datePrint}.xlsx`);
+						}
 					}
-				}
-			);
-		});
+				);
+			});
 	} catch (e) {
 		console.log(e);
 		res.json({ status: "failed", reason: e });

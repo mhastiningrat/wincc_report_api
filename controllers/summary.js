@@ -20,7 +20,7 @@ const exportExcel = async (req, res) => {
 		const worksheet = workbook.addWorksheet("New Sheet", {
 			properties: { tabColor: { argb: "FFC0000" } },
 		});
-		const direct = path.join(process.cwd(), "./public");
+
 		// creating header column
 		worksheet.mergeCells("A1:U1");
 		worksheet.getCell("A1").value =
@@ -2100,20 +2100,21 @@ const exportExcel = async (req, res) => {
 		let datePrint = `${moment().format("YYYYMMDD")}_${moment().format(
 			"HHmmss"
 		)}`;
+		const direct = "/tmp";
 		await workbook.xlsx
 			.writeFile(
-				`${path}/COAL_TERMINAL_SUMMARY_REPORT_12_HOURS_SHIFT_PAGE_1_${datePrint}.xlsx`
+				`${direct}/COAL_TERMINAL_SUMMARY_REPORT_12_HOURS_SHIFT_PAGE_1_${datePrint}.xlsx`
 			)
 			.then(() => {
 				res.download(
-					`${path}/COAL_TERMINAL_SUMMARY_REPORT_12_HOURS_SHIFT_PAGE_1_${datePrint}.xlsx`,
+					`${direct}/COAL_TERMINAL_SUMMARY_REPORT_12_HOURS_SHIFT_PAGE_1_${datePrint}.xlsx`,
 					`COAL_TERMINAL_SUMMARY_REPORT_12_HOURS_SHIFT_PAGE_2_${datePrint}.xlsx`,
 					(err) => {
 						if (err) {
 							console.log(err);
 						} else {
 							fs.unlinkSync(
-								`${path}/COAL_TERMINAL_SUMMARY_REPORT_12_HOURS_SHIFT_PAGE_2_${datePrint}.xlsx`
+								`${direct}/COAL_TERMINAL_SUMMARY_REPORT_12_HOURS_SHIFT_PAGE_2_${datePrint}.xlsx`
 							);
 						}
 					}
