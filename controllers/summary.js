@@ -2356,9 +2356,10 @@ const exportExcelPage2 = async (req, res) => {
 						if (err) {
 							console.log(err);
 						} else {
-							fs.unlinkSync(
-								`${path}/COAL_TERMINAL_SUMMARY_REPORT_12_HOURS_SHIFT_PAGE_2_${datePrint}.xlsx`
-							);
+							console.log("err");
+							// fs.unlinkSync(
+							// 	`${path}/COAL_TERMINAL_SUMMARY_REPORT_12_HOURS_SHIFT_PAGE_2_${datePrint}.xlsx`
+							// );
 						}
 					}
 				);
