@@ -2108,13 +2108,13 @@ const exportExcel = async (req, res) => {
 			.then(() => {
 				res.download(
 					`${direct}/COAL_TERMINAL_SUMMARY_REPORT_12_HOURS_SHIFT_PAGE_1_${datePrint}.xlsx`,
-					`COAL_TERMINAL_SUMMARY_REPORT_12_HOURS_SHIFT_PAGE_2_${datePrint}.xlsx`,
+					`COAL_TERMINAL_SUMMARY_REPORT_12_HOURS_SHIFT_PAGE_1_${datePrint}.xlsx`,
 					(err) => {
 						if (err) {
 							console.log(err);
 						} else {
 							fs.unlinkSync(
-								`${direct}/COAL_TERMINAL_SUMMARY_REPORT_12_HOURS_SHIFT_PAGE_2_${datePrint}.xlsx`
+								`${direct}/COAL_TERMINAL_SUMMARY_REPORT_12_HOURS_SHIFT_PAGE_1_${datePrint}.xlsx`
 							);
 						}
 					}
