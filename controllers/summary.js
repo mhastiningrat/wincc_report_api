@@ -2120,7 +2120,7 @@ const exportExcel = async (req, res) => {
 			});
 	} catch (error) {
 		console.log(error);
-		res.json({ status: "failed" });
+		res.json({ status: "failed", reason: error });
 	}
 };
 
@@ -2349,22 +2349,24 @@ const exportExcelPage2 = async (req, res) => {
 			)
 			.then(() => {
 				console.log("HARUS NYA SIH UDA BISA DOWNLOAD YA");
-				// res.download(
-				// 	`${path}/COAL_TERMINAL_SUMMARY_REPORT_12_HOURS_SHIFT_PAGE_2_${datePrint}.xlsx`,
-				// 	`COAL_TERMINAL_SUMMARY_REPORT_12_HOURS_SHIFT_PAGE_2_${datePrint}.xlsx`,
-				// 	(err) => {
-				// 		if (err) {
-				// 			console.log(err);
-				// 		} else {
-				// 			fs.unlinkSync(
-				// 				`${path}/COAL_TERMINAL_SUMMARY_REPORT_12_HOURS_SHIFT_PAGE_2_${datePrint}.xlsx`
-				// 			);
-				// 		}
-				// 	}
-				// );
-				res.json({ message: "success" });
+				res.download(
+					`${path}/COAL_TERMINAL_SUMMARY_REPORT_12_HOURS_SHIFT_PAGE_2_${datePrint}.xlsx`,
+					`COAL_TERMINAL_SUMMARY_REPORT_12_HOURS_SHIFT_PAGE_2_${datePrint}.xlsx`,
+					(err) => {
+						if (err) {
+							console.log(err);
+						} else {
+							fs.unlinkSync(
+								`${path}/COAL_TERMINAL_SUMMARY_REPORT_12_HOURS_SHIFT_PAGE_2_${datePrint}.xlsx`
+							);
+						}
+					}
+				);
+				// res.json({ message: "success" });
 			});
-	} catch (error) {}
+	} catch (error) {
+		res.json({ status: "failed", reason: error });
+	}
 };
 
 module.exports = {
