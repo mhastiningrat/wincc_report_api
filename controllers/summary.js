@@ -1,0 +1,1928 @@
+const ExcelJS = require("exceljs");
+const fs = require("fs");
+const {
+	borderBold,
+	grayHeader,
+	fontBold,
+	textCenter,
+	borderThin,
+	textLeft,
+	yellowHeader,
+	textRight,
+} = require("../utils/excel");
+
+const exportExcel = async (req, res) => {
+	try {
+		const workbook = new ExcelJS.Workbook();
+		const worksheet = workbook.addWorksheet("New Sheet", {
+			properties: { tabColor: { argb: "FFC0000" } },
+		});
+		const path = "./file";
+		// creating header column
+		worksheet.mergeCells("A3:I3");
+		worksheet.mergeCells("J3:N3");
+		worksheet.mergeCells("O3:Z3");
+		worksheet.mergeCells("A4:A5");
+		worksheet.mergeCells("A6:A7");
+		worksheet.mergeCells("A8:A10");
+		worksheet.mergeCells("B4:C5");
+		worksheet.mergeCells("B6:C7");
+		worksheet.mergeCells("B8:C10");
+		worksheet.mergeCells("E4:F4");
+		worksheet.mergeCells("E5:F5");
+		worksheet.mergeCells("E6:F6");
+		worksheet.mergeCells("E7:F7");
+		worksheet.mergeCells("E8:F8");
+		worksheet.mergeCells("E9:F9");
+		worksheet.mergeCells("E10:F10");
+		worksheet.mergeCells("H4:I4");
+		worksheet.mergeCells("H5:I5");
+		worksheet.mergeCells("H6:I6");
+		worksheet.mergeCells("H7:I7");
+		worksheet.mergeCells("H8:I8");
+		worksheet.mergeCells("H9:I9");
+		worksheet.mergeCells("H10:I10");
+		worksheet.mergeCells("J5:J6");
+		worksheet.mergeCells("J7:J8");
+		worksheet.mergeCells("J9:M10");
+		worksheet.mergeCells("K5:K6");
+		worksheet.mergeCells("K7:K8");
+		worksheet.mergeCells("L5:L6");
+		worksheet.mergeCells("L7:L8");
+		worksheet.mergeCells("M5:M6");
+		worksheet.mergeCells("M7:M8");
+		worksheet.mergeCells("N5:N6");
+		worksheet.mergeCells("N7:N8");
+		worksheet.mergeCells("N9:N10");
+		worksheet.mergeCells("O4:P4");
+		worksheet.mergeCells("Q4:R4");
+		worksheet.mergeCells("O7:R8");
+		worksheet.mergeCells("O9:R10");
+		worksheet.mergeCells("S4:T4");
+		worksheet.mergeCells("U4:V4");
+		worksheet.mergeCells("S7:V8");
+		worksheet.mergeCells("S9:V10");
+		worksheet.mergeCells("W4:X4");
+		worksheet.mergeCells("Y4:Z4");
+		worksheet.mergeCells("A11:K11");
+		worksheet.mergeCells("L11:V11");
+		worksheet.mergeCells("A12:A13");
+		worksheet.mergeCells("B12:C12");
+		worksheet.mergeCells("D12:E12");
+		worksheet.mergeCells("F12:G12");
+		worksheet.mergeCells("H12:I12");
+		worksheet.mergeCells("J12:K12");
+		worksheet.mergeCells("L12:L13");
+		worksheet.mergeCells("M12:N13");
+		worksheet.mergeCells("O12:P12");
+		worksheet.mergeCells("Q12:R12");
+		worksheet.mergeCells("S12:T12");
+		worksheet.mergeCells("U12:V12");
+
+		worksheet.getCell("E3").value = "OPERATOR ON DUTY";
+		worksheet.getCell("L3").value = "OLC WEIGHER DATA";
+		worksheet.getCell("T3").value = "COAL SHIPPING";
+		worksheet.getCell("A4").value = "DATE";
+		worksheet.getCell("A6").value = "SHIFT";
+		worksheet.getCell("A8").value = "CREW";
+		worksheet.getCell("D4").value = "Supt";
+		worksheet.getCell("D5").value = "Supv-in";
+		worksheet.getCell("D6").value = "Supv-out";
+		worksheet.getCell("D7").value = "C.Room 1";
+		worksheet.getCell("D8").value = "C.Room 2";
+		worksheet.getCell("D9").value = "Stacker 1";
+		worksheet.getCell("D10").value = "Stacker 2";
+		worksheet.getCell("G4").value = "Reclaimer 1";
+		worksheet.getCell("G5").value = "Reclaimer 2";
+		worksheet.getCell("G6").value = "NSL";
+		worksheet.getCell("G7").value = "NTH DO";
+		worksheet.getCell("G8").value = "SSL";
+		worksheet.getCell("G9").value = "STH DO";
+		worksheet.getCell("G10").value = "BLF";
+		worksheet.getCell("J4").value = "Equipment";
+		worksheet.getCell("K4").value = "Prima";
+		worksheet.getCell("L4").value = "Pinang";
+		worksheet.getCell("M4").value = "Melawan";
+		worksheet.getCell("N4").value = "Total";
+		worksheet.getCell("J5").value = "OLC 1";
+		worksheet.getCell("J7").value = "OLC 2";
+		worksheet.getCell("J9").value = "TOTAL COAL CONVEYED";
+		worksheet.getCell("O4").value = "VESSEL 1 - MV :";
+		worksheet.getCell("O5").value = "Reclaimer 1";
+		worksheet.getCell("O7").value = "TOTAL BLF :";
+		worksheet.getCell("O9").value =
+			"TOTAL COAL SHIPPED (VESSEL 1 + VESSEL 2 + VESSEL 3 + BLF) :";
+		worksheet.getCell("P5").value = "Reclaimer 2";
+		worksheet.getCell("Q5").value = "Stamler";
+		worksheet.getCell("R5").value = "Trestle";
+		worksheet.getCell("S4").value = "VESSEL 2 - MV :";
+		worksheet.getCell("S5").value = "Reclaimer 1";
+		worksheet.getCell("T5").value = "Reclaimer 2";
+		worksheet.getCell("U5").value = "Stamler";
+		worksheet.getCell("V5").value = "Trestle";
+		worksheet.getCell("W4").value = "VESSEL 3 - MV :";
+		worksheet.getCell("W5").value = "Reclaimer 1";
+		worksheet.getCell("X5").value = "Reclaimer 2";
+		worksheet.getCell("Y5").value = "Stamler";
+		worksheet.getCell("Z5").value = "Trestle";
+		worksheet.getCell("A11").value = "COAL STACKING (INCOMING)";
+		worksheet.getCell("L11").value = "COAL RECLAIMING (OUTGOING)";
+		worksheet.getCell("A12").value = "Equipment";
+		worksheet.getCell("B12").value = "Prima";
+		worksheet.getCell("D12").value = "Pinang";
+		worksheet.getCell("F12").value = "Melawan";
+		worksheet.getCell("H12").value = "Position";
+		worksheet.getCell("J12").value = "Total";
+		worksheet.getCell("B13").value = "South";
+		worksheet.getCell("C13").value = "North";
+		worksheet.getCell("D13").value = "South";
+		worksheet.getCell("E13").value = "North";
+		worksheet.getCell("F13").value = "South";
+		worksheet.getCell("G13").value = "North";
+		worksheet.getCell("H13").value = "South";
+		worksheet.getCell("I13").value = "North";
+		worksheet.getCell("J13").value = "South";
+		worksheet.getCell("K13").value = "North";
+		worksheet.getCell("L12").value = "Equipment";
+		worksheet.getCell("M12").value = "Vessel Name";
+		worksheet.getCell("O12").value = "Prima";
+		worksheet.getCell("Q12").value = "Pinang";
+		worksheet.getCell("S12").value = "Melawan";
+		worksheet.getCell("U12").value = "Total";
+		worksheet.getCell("O13").value = "South";
+		worksheet.getCell("P13").value = "North";
+		worksheet.getCell("Q13").value = "South";
+		worksheet.getCell("R13").value = "North";
+		worksheet.getCell("S13").value = "South";
+		worksheet.getCell("T13").value = "North";
+		worksheet.getCell("U13").value = "South";
+		worksheet.getCell("V13").value = "North";
+
+		//cell with data from database
+		worksheet.getCell("B4").value = "01/01/2024"; //date
+		worksheet.getCell("B6").value = "shift malam"; // shift
+		worksheet.getCell("B8").value = "Pak Yanuar"; // crew
+		worksheet.getCell("E4").value = "Pak Yanuar"; // supv
+		worksheet.getCell("E5").value = "Pak Yanuar"; // supv in
+		worksheet.getCell("E6").value = "Pak Yanuar"; // supv out
+		worksheet.getCell("E7").value = "Pak Yanuar"; // croom1
+		worksheet.getCell("E8").value = "Pak Yanuar"; // croom2
+		worksheet.getCell("E9").value = "Pak Yanuar"; // stacker1
+		worksheet.getCell("E10").value = "Pak Yanuar"; // stacker2
+		worksheet.getCell("H4").value = "Pak Yanuar"; // reclaimer1
+		worksheet.getCell("H5").value = "Pak Yanuar"; // reclaimer2
+		worksheet.getCell("H6").value = "Pak Yanuar"; // nsl
+		worksheet.getCell("H7").value = "Pak Yanuar"; // nth do
+		worksheet.getCell("H8").value = "Pak Yanuar"; // ssl
+		worksheet.getCell("H9").value = "Pak Yanuar"; // sth do
+		worksheet.getCell("H10").value = "Pak Yanuar"; // blf
+		worksheet.getCell("K5").value = "Pak Yanuar"; // olc1 prima
+		worksheet.getCell("K7").value = "Pak Yanuar"; // olc2 prima
+		worksheet.getCell("L5").value = "Pak Yanuar"; // olc1 pinang
+		worksheet.getCell("L7").value = "Pak Yanuar"; // olc2 pinang
+		worksheet.getCell("M5").value = "Pak Yanuar"; // olc1 melawan
+		worksheet.getCell("M7").value = "Pak Yanuar"; // olc2 melawan
+		worksheet.getCell("N5").value = "Pak Yanuar"; // olc1 total
+		worksheet.getCell("N7").value = "Pak Yanuar"; // olc2 total
+		worksheet.getCell("N9").value = "Pak Yanuar"; // olc2 total
+		worksheet.getCell("O6").value = "Pak Yanuar"; // coal reclaimer 1 vessel 1
+		worksheet.getCell("P6").value = "Pak Yanuar"; // coal reclaimer 2 vessel 1
+		worksheet.getCell("Q4").value = "Pak Yanuar"; // coal vessel 1 mv
+		worksheet.getCell("Q6").value = "Pak Yanuar"; // coal stamler vessel 1
+		worksheet.getCell("R6").value = "Pak Yanuar"; // coal trestle vessel 1
+
+		worksheet.getCell("S6").value = "Pak Yanuar"; // coal reclaimer 1 vessel 2
+		worksheet.getCell("T6").value = "Pak Yanuar"; // coal reclaimer 2 vessel 2
+		worksheet.getCell("U4").value = "Pak Yanuar"; // coal vessel 2 mv
+		worksheet.getCell("U6").value = "Pak Yanuar"; // coal stamler vessel 2
+		worksheet.getCell("V6").value = "Pak Yanuar"; // coal trestle  vessel 2
+		worksheet.getCell("S7").value = "Pak Yanuar"; // coal total blf
+		worksheet.getCell("S9").value = "Pak Yanuar"; // coal coal shipped
+
+		worksheet.getCell("W6").value = "Pak Yanuar"; // coal reclaimer 1 vessel 3
+		worksheet.getCell("X6").value = "Pak Yanuar"; // coal reclaimer 2 vessel 3
+		worksheet.getCell("Y4").value = "Pak Yanuar"; // coal vessel 3 mv
+		worksheet.getCell("Y6").value = "Pak Yanuar"; // coal stamler vessel 3
+		worksheet.getCell("Z6").value = "Pak Yanuar"; // coal trestle  vessel 3
+
+		let data = [
+			{
+				a: "a14",
+				b: "b14",
+				c: "c14",
+				d: "d14",
+				e: "e14",
+				f: "f14",
+				g: "g14",
+				h: "h14",
+				i: "i14",
+				j: "j14",
+				k: "k14",
+				l: "l14",
+				m: "m14",
+				n: "n14",
+				o: "o14",
+				p: "p14",
+				q: "q14",
+				r: "r14",
+				s: "s14",
+				t: "t14",
+				u: "u14",
+				v: "v14",
+			},
+			{
+				a: "a15",
+				b: "b15",
+				c: "c15",
+				d: "d15",
+				e: "e15",
+				f: "f15",
+				g: "g15",
+				h: "h15",
+				i: "i15",
+				j: "j15",
+				k: "k15",
+				l: "l15",
+				m: "m15",
+				n: "n15",
+				o: "o15",
+				p: "p15",
+				q: "q15",
+				r: "r15",
+				s: "s15",
+				t: "t15",
+				u: "u15",
+				v: "v15",
+			},
+			{
+				a: "a16",
+				b: "b16",
+				c: "c16",
+				d: "d16",
+				e: "e16",
+				f: "f16",
+				g: "g16",
+				h: "h16",
+				i: "i16",
+				j: "j16",
+				k: "k16",
+				l: "l16",
+				m: "m16",
+				n: "n16",
+				o: "o16",
+				p: "p16",
+				q: "q16",
+				r: "r16",
+				s: "s16",
+				t: "t16",
+				u: "u16",
+				v: "v16",
+			},
+			{
+				a: "a17",
+				b: "b17",
+				c: "c17",
+				d: "d17",
+				e: "e17",
+				f: "f17",
+				g: "g17",
+				h: "h17",
+				i: "i17",
+				j: "j17",
+				k: "k17",
+			},
+			{
+				a: "a18",
+				b: "b18",
+				c: "c18",
+				d: "d18",
+				e: "e18",
+				f: "f18",
+				g: "g18",
+				h: "h18",
+				i: "i18",
+				j: "j18",
+				k: "k18",
+			},
+		];
+		let firstRow = 13;
+		let rowCoalIncoming = 0;
+		let rowCoalReclaiming = 0;
+		for (let i in data) {
+			firstRow++;
+			worksheet.getCell("A" + firstRow).value = data[i].a;
+			worksheet.getCell("A" + firstRow).style = {
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.getCell("B" + firstRow).value = data[i].b;
+			worksheet.getCell("B" + firstRow).style = {
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.getCell("C" + firstRow).value = data[i].c;
+			worksheet.getCell("C" + firstRow).style = {
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.getCell("D" + firstRow).value = data[i].d;
+			worksheet.getCell("D" + firstRow).style = {
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.getCell("E" + firstRow).value = data[i].e;
+			worksheet.getCell("E" + firstRow).style = {
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.getCell("F" + firstRow).value = data[i].f;
+			worksheet.getCell("F" + firstRow).style = {
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.getCell("G" + firstRow).value = data[i].g;
+			worksheet.getCell("G" + firstRow).style = {
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.getCell("H" + firstRow).value = data[i].h;
+			worksheet.getCell("H" + firstRow).style = {
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.getCell("I" + firstRow).value = data[i].i;
+			worksheet.getCell("I" + firstRow).style = {
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.getCell("J" + firstRow).value = data[i].j;
+			worksheet.getCell("J" + firstRow).style = {
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.getCell("K" + firstRow).value = data[i].k;
+			worksheet.getCell("K" + firstRow).style = {
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.getCell("L" + firstRow).value = data[i].l;
+			worksheet.getCell("L" + firstRow).style = {
+				alignment: textCenter,
+				border: borderThin,
+			};
+			if (data[i].l) {
+				worksheet.mergeCells("M" + firstRow + ":" + "N" + firstRow);
+			}
+
+			worksheet.getCell("M" + firstRow).value = data[i].m;
+			worksheet.getCell("M" + firstRow).style = {
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.getCell("O" + firstRow).value = data[i].o;
+			worksheet.getCell("O" + firstRow).style = {
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.getCell("P" + firstRow).value = data[i].p;
+			worksheet.getCell("P" + firstRow).style = {
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.getCell("Q" + firstRow).value = data[i].q;
+			worksheet.getCell("Q" + firstRow).style = {
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.getCell("R" + firstRow).value = data[i].r;
+			worksheet.getCell("R" + firstRow).style = {
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.getCell("S" + firstRow).value = data[i].s;
+			worksheet.getCell("S" + firstRow).style = {
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.getCell("T" + firstRow).value = data[i].t;
+			worksheet.getCell("T" + firstRow).style = {
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.getCell("U" + firstRow).value = data[i].u;
+			worksheet.getCell("U" + firstRow).style = {
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.getCell("V" + firstRow).value = data[i].v;
+			worksheet.getCell("V" + firstRow).style = {
+				alignment: textCenter,
+				border: borderThin,
+			};
+			if (data[i].l) {
+				rowCoalReclaiming++;
+			}
+			//===========================================================================================
+			worksheet.getCell("L" + (rowCoalReclaiming + 13 + 1)).value =
+				"OLC#1 Bypass";
+			worksheet.getCell("L" + (rowCoalReclaiming + 13 + 1)).style = {
+				border: borderThin,
+				font: fontBold,
+				alignment: textCenter,
+			};
+			//===========================================================================================
+			worksheet.getCell("L" + (rowCoalReclaiming + 13 + 2)).value =
+				"OLC#1 Bypass";
+			worksheet.getCell("L" + (rowCoalReclaiming + 13 + 2)).style = {
+				border: borderThin,
+				font: fontBold,
+				alignment: textCenter,
+			};
+
+			//===========================================================================================
+			worksheet.getCell("L" + (rowCoalReclaiming + 13 + 3)).value =
+				"OLC#1 Bypass";
+			worksheet.getCell("L" + (rowCoalReclaiming + 13 + 3)).style = {
+				border: borderThin,
+				font: fontBold,
+				alignment: textCenter,
+				fill: yellowHeader,
+			};
+
+			//===========================================================================================
+			worksheet.getCell("L" + (rowCoalReclaiming + 13 + 4)).value =
+				"OLC#2 Bypass";
+			worksheet.getCell("L" + (rowCoalReclaiming + 13 + 4)).style = {
+				border: borderThin,
+				font: fontBold,
+				alignment: textCenter,
+			};
+
+			//===========================================================================================
+			worksheet.getCell("L" + (rowCoalReclaiming + 13 + 5)).value =
+				"OLC#2 Bypass";
+			worksheet.getCell("L" + (rowCoalReclaiming + 13 + 5)).style = {
+				border: borderThin,
+				font: fontBold,
+				alignment: textCenter,
+			};
+
+			//===========================================================================================
+			worksheet.getCell("L" + (rowCoalReclaiming + 13 + 6)).value =
+				"OLC#2 Bypass";
+			worksheet.getCell("L" + (rowCoalReclaiming + 13 + 6)).style = {
+				border: borderThin,
+				font: fontBold,
+				alignment: textCenter,
+				fill: yellowHeader,
+			};
+
+			//===========================================================================================
+
+			rowCoalIncoming++;
+		}
+		let selisihRow = 6;
+		for (let i = 0; selisihRow > i; selisihRow--) {
+			console.log(selisihRow);
+			console.log("===============================");
+			console.log("A" + (rowCoalReclaiming + 13 + selisihRow));
+			if (selisihRow == 5) {
+				worksheet.mergeCells(
+					"A" +
+						(rowCoalReclaiming + 13 + selisihRow) +
+						":" +
+						"I" +
+						(rowCoalReclaiming + 13 + selisihRow)
+				);
+				worksheet.mergeCells(
+					"J" +
+						(rowCoalReclaiming + 13 + selisihRow) +
+						":" +
+						"K" +
+						(rowCoalReclaiming + 13 + selisihRow)
+				);
+				worksheet.getCell("A" + (rowCoalReclaiming + 13 + selisihRow)).value =
+					"TOTAL STACKING";
+				worksheet.getCell("A" + (rowCoalReclaiming + 13 + selisihRow)).style = {
+					border: borderThin,
+					alignment: textRight,
+					font: fontBold,
+				};
+			} else if (selisihRow == 6) {
+				worksheet.mergeCells(
+					"A" +
+						(rowCoalReclaiming + 13 + selisihRow) +
+						":" +
+						"K" +
+						(rowCoalReclaiming + 13 + selisihRow)
+				);
+				worksheet.getCell("A" + (rowCoalReclaiming + 13 + selisihRow)).style = {
+					fill: yellowHeader,
+					border: borderThin,
+				};
+			} else {
+				worksheet.getCell("A" + (rowCoalReclaiming + 13 + selisihRow)).style = {
+					alignment: textCenter,
+					border: borderThin,
+				};
+				worksheet.getCell("J" + (rowCoalReclaiming + 13 + selisihRow)).style = {
+					alignment: textCenter,
+					border: borderThin,
+				};
+			}
+
+			worksheet.getCell("B" + (rowCoalReclaiming + 13 + selisihRow)).style = {
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.getCell("C" + (rowCoalReclaiming + 13 + selisihRow)).style = {
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.getCell("D" + (rowCoalReclaiming + 13 + selisihRow)).style = {
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.getCell("E" + (rowCoalReclaiming + 13 + selisihRow)).style = {
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.getCell("F" + (rowCoalReclaiming + 13 + selisihRow)).style = {
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.getCell("G" + (rowCoalReclaiming + 13 + selisihRow)).style = {
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.getCell("H" + (rowCoalReclaiming + 13 + selisihRow)).style = {
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.getCell("I" + (rowCoalReclaiming + 13 + selisihRow)).style = {
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.getCell("K" + (rowCoalReclaiming + 13 + selisihRow)).style = {
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.getCell("M" + (rowCoalReclaiming + 13 + selisihRow)).style = {
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.getCell("N" + (rowCoalReclaiming + 13 + selisihRow)).style = {
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.getCell("O" + (rowCoalReclaiming + 13 + selisihRow)).style = {
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.getCell("P" + (rowCoalReclaiming + 13 + selisihRow)).style = {
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.getCell("Q" + (rowCoalReclaiming + 13 + selisihRow)).style = {
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.getCell("R" + (rowCoalReclaiming + 13 + selisihRow)).style = {
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.getCell("S" + (rowCoalReclaiming + 13 + selisihRow)).style = {
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.getCell("T" + (rowCoalReclaiming + 13 + selisihRow)).style = {
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.getCell("U" + (rowCoalReclaiming + 13 + selisihRow)).style = {
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.getCell("V" + (rowCoalReclaiming + 13 + selisihRow)).style = {
+				alignment: textCenter,
+				border: borderThin,
+			};
+		}
+		worksheet.mergeCells(
+			"L" +
+				(rowCoalReclaiming + 13 + 7) +
+				":" +
+				"T" +
+				(rowCoalReclaiming + 13 + 7)
+		);
+		worksheet.mergeCells(
+			"A" +
+				(rowCoalReclaiming + 13 + 7) +
+				":" +
+				"K" +
+				(rowCoalReclaiming + 13 + 7)
+		);
+		worksheet.getCell("L" + (rowCoalReclaiming + 13 + 7)).value =
+			"TOTAL RECLAIMING";
+		worksheet.getCell("L" + (rowCoalReclaiming + 13 + 7)).style = {
+			border: borderThin,
+			alignment: textRight,
+			font: fontBold,
+		};
+		worksheet.mergeCells(
+			"U" +
+				(rowCoalReclaiming + 13 + 7) +
+				":" +
+				"V" +
+				(rowCoalReclaiming + 13 + 7)
+		);
+		worksheet.getCell("U" + (rowCoalReclaiming + 13 + 7)).style = {
+			border: borderThin,
+			alignment: textRight,
+			font: fontBold,
+		};
+		worksheet.getCell("A" + (rowCoalReclaiming + 13 + 7)).style = {
+			border: borderThin,
+			fill: yellowHeader,
+		};
+		worksheet.mergeCells(
+			"M" +
+				(rowCoalReclaiming + 13 + 1) +
+				":" +
+				"N" +
+				(rowCoalReclaiming + 13 + 1)
+		);
+		worksheet.mergeCells(
+			"O" +
+				(rowCoalReclaiming + 13 + 1) +
+				":" +
+				"P" +
+				(rowCoalReclaiming + 13 + 1)
+		);
+		worksheet.mergeCells(
+			"Q" +
+				(rowCoalReclaiming + 13 + 1) +
+				":" +
+				"R" +
+				(rowCoalReclaiming + 13 + 1)
+		);
+		worksheet.mergeCells(
+			"S" +
+				(rowCoalReclaiming + 13 + 1) +
+				":" +
+				"T" +
+				(rowCoalReclaiming + 13 + 1)
+		);
+		worksheet.mergeCells(
+			"U" +
+				(rowCoalReclaiming + 13 + 1) +
+				":" +
+				"V" +
+				(rowCoalReclaiming + 13 + 1)
+		);
+		worksheet.mergeCells(
+			"M" +
+				(rowCoalReclaiming + 13 + 2) +
+				":" +
+				"N" +
+				(rowCoalReclaiming + 13 + 2)
+		);
+		worksheet.mergeCells(
+			"O" +
+				(rowCoalReclaiming + 13 + 2) +
+				":" +
+				"P" +
+				(rowCoalReclaiming + 13 + 2)
+		);
+		worksheet.mergeCells(
+			"Q" +
+				(rowCoalReclaiming + 13 + 2) +
+				":" +
+				"R" +
+				(rowCoalReclaiming + 13 + 2)
+		);
+		worksheet.mergeCells(
+			"S" +
+				(rowCoalReclaiming + 13 + 2) +
+				":" +
+				"T" +
+				(rowCoalReclaiming + 13 + 2)
+		);
+		worksheet.mergeCells(
+			"U" +
+				(rowCoalReclaiming + 13 + 2) +
+				":" +
+				"V" +
+				(rowCoalReclaiming + 13 + 2)
+		);
+		worksheet.mergeCells(
+			"M" +
+				(rowCoalReclaiming + 13 + 3) +
+				":" +
+				"N" +
+				(rowCoalReclaiming + 13 + 3)
+		);
+		worksheet.mergeCells(
+			"O" +
+				(rowCoalReclaiming + 13 + 3) +
+				":" +
+				"P" +
+				(rowCoalReclaiming + 13 + 3)
+		);
+		worksheet.mergeCells(
+			"Q" +
+				(rowCoalReclaiming + 13 + 3) +
+				":" +
+				"R" +
+				(rowCoalReclaiming + 13 + 3)
+		);
+		worksheet.mergeCells(
+			"S" +
+				(rowCoalReclaiming + 13 + 3) +
+				":" +
+				"T" +
+				(rowCoalReclaiming + 13 + 3)
+		);
+		worksheet.mergeCells(
+			"U" +
+				(rowCoalReclaiming + 13 + 3) +
+				":" +
+				"V" +
+				(rowCoalReclaiming + 13 + 3)
+		);
+		worksheet.mergeCells(
+			"M" +
+				(rowCoalReclaiming + 13 + 4) +
+				":" +
+				"N" +
+				(rowCoalReclaiming + 13 + 4)
+		);
+		worksheet.mergeCells(
+			"O" +
+				(rowCoalReclaiming + 13 + 4) +
+				":" +
+				"P" +
+				(rowCoalReclaiming + 13 + 4)
+		);
+		worksheet.mergeCells(
+			"Q" +
+				(rowCoalReclaiming + 13 + 4) +
+				":" +
+				"R" +
+				(rowCoalReclaiming + 13 + 4)
+		);
+		worksheet.mergeCells(
+			"S" +
+				(rowCoalReclaiming + 13 + 4) +
+				":" +
+				"T" +
+				(rowCoalReclaiming + 13 + 4)
+		);
+		worksheet.mergeCells(
+			"U" +
+				(rowCoalReclaiming + 13 + 4) +
+				":" +
+				"V" +
+				(rowCoalReclaiming + 13 + 4)
+		);
+		worksheet.mergeCells(
+			"M" +
+				(rowCoalReclaiming + 13 + 5) +
+				":" +
+				"N" +
+				(rowCoalReclaiming + 13 + 5)
+		);
+		worksheet.mergeCells(
+			"O" +
+				(rowCoalReclaiming + 13 + 5) +
+				":" +
+				"P" +
+				(rowCoalReclaiming + 13 + 5)
+		);
+		worksheet.mergeCells(
+			"Q" +
+				(rowCoalReclaiming + 13 + 5) +
+				":" +
+				"R" +
+				(rowCoalReclaiming + 13 + 5)
+		);
+		worksheet.mergeCells(
+			"S" +
+				(rowCoalReclaiming + 13 + 5) +
+				":" +
+				"T" +
+				(rowCoalReclaiming + 13 + 5)
+		);
+		worksheet.mergeCells(
+			"U" +
+				(rowCoalReclaiming + 13 + 5) +
+				":" +
+				"V" +
+				(rowCoalReclaiming + 13 + 5)
+		);
+		worksheet.mergeCells(
+			"M" +
+				(rowCoalReclaiming + 13 + 6) +
+				":" +
+				"N" +
+				(rowCoalReclaiming + 13 + 6)
+		);
+		worksheet.mergeCells(
+			"O" +
+				(rowCoalReclaiming + 13 + 6) +
+				":" +
+				"P" +
+				(rowCoalReclaiming + 13 + 6)
+		);
+		worksheet.mergeCells(
+			"Q" +
+				(rowCoalReclaiming + 13 + 6) +
+				":" +
+				"R" +
+				(rowCoalReclaiming + 13 + 6)
+		);
+		worksheet.mergeCells(
+			"S" +
+				(rowCoalReclaiming + 13 + 6) +
+				":" +
+				"T" +
+				(rowCoalReclaiming + 13 + 6)
+		);
+		worksheet.mergeCells(
+			"U" +
+				(rowCoalReclaiming + 13 + 6) +
+				":" +
+				"V" +
+				(rowCoalReclaiming + 13 + 6)
+		);
+
+		//Header BARGE LOADING SHIPPING DETAIL
+		worksheet.mergeCells(
+			"A" +
+				(rowCoalReclaiming + 13 + 8) +
+				":" +
+				"V" +
+				(rowCoalReclaiming + 13 + 8)
+		);
+		worksheet.getCell("A" + (rowCoalReclaiming + 13 + 8)).value =
+			"BARGE LOADING SHIPPING DETAIL";
+		worksheet.getCell("A" + (rowCoalReclaiming + 13 + 8)).style = {
+			font: textCenter,
+			fill: grayHeader,
+			border: borderBold,
+			font: fontBold,
+		};
+
+		//Barge
+		worksheet.mergeCells(
+			"A" +
+				(rowCoalReclaiming + 13 + 9) +
+				":" +
+				"A" +
+				(rowCoalReclaiming + 13 + 10)
+		);
+		worksheet.getCell("A" + (rowCoalReclaiming + 13 + 9)).value = "No.";
+		worksheet.getCell("A" + (rowCoalReclaiming + 13 + 9)).style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.mergeCells(
+			"B" +
+				(rowCoalReclaiming + 13 + 9) +
+				":" +
+				"D" +
+				(rowCoalReclaiming + 13 + 10)
+		);
+		worksheet.getCell("B" + (rowCoalReclaiming + 13 + 9)).value = "Vessel";
+		worksheet.getCell("B" + (rowCoalReclaiming + 13 + 9)).style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.mergeCells(
+			"E" +
+				(rowCoalReclaiming + 13 + 9) +
+				":" +
+				"N" +
+				(rowCoalReclaiming + 13 + 9)
+		);
+		worksheet.getCell("E" + (rowCoalReclaiming + 13 + 9)).value = "Barge";
+		worksheet.getCell("E" + (rowCoalReclaiming + 13 + 9)).style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.mergeCells(
+			"E" +
+				(rowCoalReclaiming + 13 + 10) +
+				":" +
+				"F" +
+				(rowCoalReclaiming + 13 + 10)
+		);
+		worksheet.getCell("E" + (rowCoalReclaiming + 13 + 10)).value = "Name";
+		worksheet.getCell("E" + (rowCoalReclaiming + 13 + 10)).style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("G" + (rowCoalReclaiming + 13 + 10)).value =
+			"Along Side (First Line)";
+		worksheet.getCell("G" + (rowCoalReclaiming + 13 + 10)).style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.mergeCells(
+			"H" +
+				(rowCoalReclaiming + 13 + 10) +
+				":" +
+				"I" +
+				(rowCoalReclaiming + 13 + 10)
+		);
+		worksheet.getCell("H" + (rowCoalReclaiming + 13 + 10)).value =
+			"Commenced Loading";
+		worksheet.getCell("H" + (rowCoalReclaiming + 13 + 10)).style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.mergeCells(
+			"J" +
+				(rowCoalReclaiming + 13 + 10) +
+				":" +
+				"K" +
+				(rowCoalReclaiming + 13 + 10)
+		);
+		worksheet.getCell("J" + (rowCoalReclaiming + 13 + 10)).value =
+			"Completed Loading";
+		worksheet.getCell("J" + (rowCoalReclaiming + 13 + 10)).style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("L" + (rowCoalReclaiming + 13 + 10)).value =
+			"Cast Off (Last Line)";
+		worksheet.getCell("L" + (rowCoalReclaiming + 13 + 10)).style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.mergeCells(
+			"M" +
+				(rowCoalReclaiming + 13 + 10) +
+				":" +
+				"N" +
+				(rowCoalReclaiming + 13 + 10)
+		);
+		worksheet.getCell("M" + (rowCoalReclaiming + 13 + 10)).value =
+			"Total Loading Time";
+		worksheet.getCell("M" + (rowCoalReclaiming + 13 + 10)).style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+
+		let dataBarge = [
+			{
+				a: "a16",
+				b: "b16",
+				e: "e16",
+				g: "g16",
+				h: "h16",
+				j: "j16",
+				l: "l16",
+				m: "m16",
+				o: "o16",
+				p: "p16",
+				q: "q16",
+				r: "r16",
+				s: "s16",
+				u: "u16",
+			},
+			{
+				a: "a16",
+				b: "b16",
+				e: "e16",
+				g: "g16",
+				h: "h16",
+				j: "j16",
+				l: "l16",
+				m: "m16",
+				o: "o16",
+				p: "p16",
+				q: "q16",
+				r: "r16",
+				s: "s16",
+				u: "u16",
+			},
+			{
+				a: "a16",
+				b: "b16",
+				e: "e16",
+				g: "g16",
+				h: "h16",
+				j: "j16",
+				l: "l16",
+				m: "m16",
+				o: "o16",
+				p: "p16",
+				q: "q16",
+				r: "r16",
+				s: "s16",
+				u: "u16",
+			},
+		];
+		let startBargeLoading = rowCoalReclaiming + 13 + 10;
+
+		for (let i in dataBarge) {
+			startBargeLoading++;
+			worksheet.getCell("A" + startBargeLoading).value = dataBarge[i].a;
+			worksheet.getCell("A" + startBargeLoading).style = {
+				fill: yellowHeader,
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.mergeCells(
+				"B" + startBargeLoading + ":" + "D" + startBargeLoading
+			);
+			worksheet.getCell("B" + startBargeLoading).value = dataBarge[i].b;
+			worksheet.getCell("B" + startBargeLoading).style = {
+				fill: yellowHeader,
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.mergeCells(
+				"E" + startBargeLoading + ":" + "F" + startBargeLoading
+			);
+			worksheet.getCell("E" + startBargeLoading).value = dataBarge[i].e;
+			worksheet.getCell("E" + startBargeLoading).style = {
+				fill: yellowHeader,
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.getCell("G" + startBargeLoading).value = dataBarge[i].g;
+			worksheet.getCell("G" + startBargeLoading).style = {
+				fill: yellowHeader,
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.mergeCells(
+				"H" + startBargeLoading + ":" + "I" + startBargeLoading
+			);
+			worksheet.getCell("H" + startBargeLoading).value = dataBarge[i].h;
+			worksheet.getCell("H" + startBargeLoading).style = {
+				fill: yellowHeader,
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.mergeCells(
+				"J" + startBargeLoading + ":" + "K" + startBargeLoading
+			);
+			worksheet.getCell("J" + startBargeLoading).value = dataBarge[i].j;
+			worksheet.getCell("J" + startBargeLoading).style = {
+				fill: yellowHeader,
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.getCell("L" + startBargeLoading).value = dataBarge[i].l;
+			worksheet.getCell("L" + startBargeLoading).style = {
+				fill: yellowHeader,
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.mergeCells(
+				"M" + startBargeLoading + ":" + "N" + startBargeLoading
+			);
+			worksheet.getCell("M" + startBargeLoading).value = dataBarge[i].m;
+			worksheet.getCell("M" + startBargeLoading).style = {
+				fill: yellowHeader,
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.getCell("O" + startBargeLoading).value = dataBarge[i].o;
+			worksheet.getCell("O" + startBargeLoading).style = {
+				fill: yellowHeader,
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.getCell("P" + startBargeLoading).value = dataBarge[i].p;
+			worksheet.getCell("P" + startBargeLoading).style = {
+				fill: yellowHeader,
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.getCell("Q" + startBargeLoading).value = dataBarge[i].q;
+			worksheet.getCell("Q" + startBargeLoading).style = {
+				fill: yellowHeader,
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.getCell("R" + startBargeLoading).value = dataBarge[i].r;
+			worksheet.getCell("R" + startBargeLoading).style = {
+				fill: yellowHeader,
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.mergeCells(
+				"S" + startBargeLoading + ":" + "T" + startBargeLoading
+			);
+			worksheet.getCell("S" + startBargeLoading).value = dataBarge[i].s;
+			worksheet.getCell("S" + startBargeLoading).style = {
+				fill: yellowHeader,
+				alignment: textCenter,
+				border: borderThin,
+			};
+			worksheet.mergeCells(
+				"U" + startBargeLoading + ":" + "V" + startBargeLoading
+			);
+			worksheet.getCell("U" + startBargeLoading).value = dataBarge[i].u;
+			worksheet.getCell("U" + startBargeLoading).style = {
+				fill: yellowHeader,
+				alignment: textCenter,
+				border: borderThin,
+			};
+		}
+
+		let startEquipmentDetail = startBargeLoading;
+		let secondEquipmentDetail = startBargeLoading + 1;
+
+		worksheet.mergeCells(
+			"A" + startEquipmentDetail + ":" + "V" + startEquipmentDetail
+		);
+		worksheet.getCell("A" + startEquipmentDetail).value = "EQUIPMENT DETAIL";
+		worksheet.getCell("A" + startEquipmentDetail).style = {
+			fill: grayHeader,
+			alignment: textCenter,
+			border: borderThin,
+			font: fontBold,
+		};
+		worksheet.getCell("A" + secondEquipmentDetail).value = "Equipment";
+		worksheet.getCell("A" + secondEquipmentDetail).style = {
+			alignment: textCenter,
+			border: borderThin,
+			font: fontBold,
+		};
+		worksheet.mergeCells(
+			"B" + secondEquipmentDetail + ":" + "C" + secondEquipmentDetail
+		);
+		worksheet.getCell("B" + secondEquipmentDetail).value = "Operator";
+		worksheet.getCell("B" + secondEquipmentDetail).style = {
+			alignment: textCenter,
+			border: borderThin,
+			font: fontBold,
+		};
+		worksheet.mergeCells(
+			"D" + secondEquipmentDetail + ":" + "E" + secondEquipmentDetail
+		);
+		worksheet.getCell("D" + secondEquipmentDetail).value = "Fuel";
+		worksheet.getCell("D" + secondEquipmentDetail).style = {
+			alignment: textCenter,
+			border: borderThin,
+			font: fontBold,
+		};
+		worksheet.mergeCells(
+			"F" + secondEquipmentDetail + ":" + "G" + secondEquipmentDetail
+		);
+		worksheet.getCell("F" + secondEquipmentDetail).value = "Start";
+		worksheet.getCell("F" + secondEquipmentDetail).style = {
+			alignment: textCenter,
+			border: borderThin,
+			font: fontBold,
+		};
+		worksheet.mergeCells(
+			"H" + secondEquipmentDetail + ":" + "I" + secondEquipmentDetail
+		);
+		worksheet.getCell("H" + secondEquipmentDetail).value = "Stop";
+		worksheet.getCell("H" + secondEquipmentDetail).style = {
+			alignment: textCenter,
+			border: borderThin,
+			font: fontBold,
+		};
+		worksheet.mergeCells(
+			"J" + secondEquipmentDetail + ":" + "K" + secondEquipmentDetail
+		);
+		worksheet.getCell("J" + secondEquipmentDetail).value = "Total Hours";
+		worksheet.getCell("J" + secondEquipmentDetail).style = {
+			alignment: textCenter,
+			border: borderThin,
+			font: fontBold,
+		};
+		worksheet.getCell("L" + secondEquipmentDetail).value = "Equipment";
+		worksheet.getCell("L" + secondEquipmentDetail).style = {
+			alignment: textCenter,
+			border: borderThin,
+			font: fontBold,
+		};
+		worksheet.mergeCells(
+			"M" + secondEquipmentDetail + ":" + "N" + secondEquipmentDetail
+		);
+		worksheet.getCell("M" + secondEquipmentDetail).value = "Operator";
+		worksheet.getCell("M" + secondEquipmentDetail).style = {
+			alignment: textCenter,
+			border: borderThin,
+			font: fontBold,
+		};
+		worksheet.mergeCells(
+			"O" + secondEquipmentDetail + ":" + "P" + secondEquipmentDetail
+		);
+		worksheet.getCell("O" + secondEquipmentDetail).value = "Fuel";
+		worksheet.getCell("O" + secondEquipmentDetail).style = {
+			alignment: textCenter,
+			border: borderThin,
+			font: fontBold,
+		};
+		worksheet.mergeCells(
+			"Q" + secondEquipmentDetail + ":" + "R" + secondEquipmentDetail
+		);
+		worksheet.getCell("Q" + secondEquipmentDetail).value = "Start";
+		worksheet.getCell("Q" + secondEquipmentDetail).style = {
+			alignment: textCenter,
+			border: borderThin,
+			font: fontBold,
+		};
+		worksheet.mergeCells(
+			"S" + secondEquipmentDetail + ":" + "T" + secondEquipmentDetail
+		);
+		worksheet.getCell("S" + secondEquipmentDetail).value = "Stop";
+		worksheet.getCell("S" + secondEquipmentDetail).style = {
+			alignment: textCenter,
+			border: borderThin,
+			font: fontBold,
+		};
+		worksheet.mergeCells(
+			"U" + secondEquipmentDetail + ":" + "V" + secondEquipmentDetail
+		);
+		worksheet.getCell("U" + secondEquipmentDetail).value = "Total Hours";
+		worksheet.getCell("U" + secondEquipmentDetail).style = {
+			alignment: textCenter,
+			border: borderThin,
+			font: fontBold,
+		};
+		//Weigher Data
+		worksheet.mergeCells(
+			"O" +
+				(rowCoalReclaiming + 13 + 9) +
+				":" +
+				"R" +
+				(rowCoalReclaiming + 13 + 9)
+		);
+		worksheet.getCell("O" + (rowCoalReclaiming + 13 + 9)).value =
+			"Weigher Data";
+		worksheet.getCell("O" + (rowCoalReclaiming + 13 + 9)).style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("O" + (rowCoalReclaiming + 13 + 10)).value = "Quality";
+		worksheet.getCell("O" + (rowCoalReclaiming + 13 + 10)).style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("P" + (rowCoalReclaiming + 13 + 10)).value = "Start";
+		worksheet.getCell("P" + (rowCoalReclaiming + 13 + 10)).style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("Q" + (rowCoalReclaiming + 13 + 10)).value = "Stop";
+		worksheet.getCell("Q" + (rowCoalReclaiming + 13 + 10)).style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("R" + (rowCoalReclaiming + 13 + 10)).value = "Total";
+		worksheet.getCell("R" + (rowCoalReclaiming + 13 + 10)).style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.mergeCells(
+			"S" +
+				(rowCoalReclaiming + 13 + 9) +
+				":" +
+				"T" +
+				(rowCoalReclaiming + 13 + 10)
+		);
+		worksheet.getCell("S" + (rowCoalReclaiming + 13 + 9)).value =
+			"Tonnes Draft";
+		worksheet.getCell("S" + (rowCoalReclaiming + 13 + 9)).style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.mergeCells(
+			"U" +
+				(rowCoalReclaiming + 13 + 9) +
+				":" +
+				"V" +
+				(rowCoalReclaiming + 13 + 10)
+		);
+		worksheet.getCell("U" + (rowCoalReclaiming + 13 + 9)).value =
+			"Tonnes MCC Recorded";
+		worksheet.getCell("U" + (rowCoalReclaiming + 13 + 9)).style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		//style column
+
+		worksheet.getCell("E3").fill = grayHeader;
+		worksheet.getCell("E3").font = fontBold;
+		worksheet.getCell("E3").alignment = textCenter;
+		worksheet.getCell("E3").border = borderBold;
+
+		worksheet.getCell("L3").fill = grayHeader;
+		worksheet.getCell("L3").font = fontBold;
+		worksheet.getCell("L3").alignment = textCenter;
+		worksheet.getCell("L3").border = borderBold;
+
+		worksheet.getCell("T3").fill = grayHeader;
+		worksheet.getCell("T3").font = fontBold;
+		worksheet.getCell("T3").alignment = textCenter;
+		worksheet.getCell("T3").border = borderBold;
+
+		worksheet.getCell("A4").fill = grayHeader;
+		worksheet.getCell("A4").font = fontBold;
+		worksheet.getCell("A4").alignment = textCenter;
+		worksheet.getCell("A4").border = borderThin;
+
+		worksheet.getCell("A6").fill = grayHeader;
+		worksheet.getCell("A6").font = fontBold;
+		worksheet.getCell("A6").alignment = textCenter;
+		worksheet.getCell("A6").border = borderThin;
+
+		worksheet.getCell("A8").fill = grayHeader;
+		worksheet.getCell("A8").font = fontBold;
+		worksheet.getCell("A8").alignment = textCenter;
+		worksheet.getCell("A8").border = borderThin;
+
+		// column for title
+		worksheet.getCell("D4").style = {
+			font: fontBold,
+			alignment: textLeft,
+			border: borderThin,
+		};
+		worksheet.getCell("D5").style = {
+			font: fontBold,
+			alignment: textLeft,
+			border: borderThin,
+		};
+		worksheet.getCell("D6").style = {
+			font: fontBold,
+			alignment: textLeft,
+			border: borderThin,
+		};
+		worksheet.getCell("D7").style = {
+			font: fontBold,
+			alignment: textLeft,
+			border: borderThin,
+		};
+		worksheet.getCell("D8").style = {
+			font: fontBold,
+			alignment: textLeft,
+			border: borderThin,
+		};
+		worksheet.getCell("D9").style = {
+			font: fontBold,
+			alignment: textLeft,
+			border: borderThin,
+		};
+		worksheet.getCell("D10").style = {
+			font: fontBold,
+			alignment: textLeft,
+			border: borderThin,
+		};
+		worksheet.getCell("G4").style = {
+			font: fontBold,
+			alignment: textLeft,
+			border: borderThin,
+		};
+		worksheet.getCell("G5").style = {
+			font: fontBold,
+			alignment: textLeft,
+			border: borderThin,
+		};
+		worksheet.getCell("G6").style = {
+			font: fontBold,
+			alignment: textLeft,
+			border: borderThin,
+		};
+		worksheet.getCell("G7").style = {
+			font: fontBold,
+			alignment: textLeft,
+			border: borderThin,
+		};
+		worksheet.getCell("G8").style = {
+			font: fontBold,
+			alignment: textLeft,
+			border: borderThin,
+		};
+		worksheet.getCell("G9").style = {
+			font: fontBold,
+			alignment: textLeft,
+			border: borderThin,
+		};
+		worksheet.getCell("G10").style = {
+			font: fontBold,
+			alignment: textLeft,
+			border: borderThin,
+		};
+		worksheet.getCell("J4").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("K4").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("L4").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("M4").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("N4").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("J5").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("J7").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("J9").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+
+		worksheet.getCell("O4").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("O5").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("O7").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("O9").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+			fill: yellowHeader,
+		};
+		worksheet.getCell("P5").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("Q5").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("R5").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("S4").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("S5").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("T5").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("U5").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("V5").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("W4").style = {
+			fill: yellowHeader,
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("W5").style = {
+			fill: yellowHeader,
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("X5").style = {
+			fill: yellowHeader,
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("Y5").style = {
+			fill: yellowHeader,
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("Z5").style = {
+			fill: yellowHeader,
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("A11").style = {
+			font: fontBold,
+			alignment: textCenter,
+			fill: grayHeader,
+			border: borderThin,
+		};
+		worksheet.getCell("L11").style = {
+			font: fontBold,
+			alignment: textCenter,
+			fill: grayHeader,
+			border: borderThin,
+		};
+		worksheet.getCell("A12").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("B12").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("D12").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("F12").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("H12").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("J12").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("B13").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("C13").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("D13").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("E13").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("F13").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("G13").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("H13").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("I13").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("J13").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("K13").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("L12").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("M12").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("O12").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("Q12").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("S12").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("U12").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("O13").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("P13").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("Q13").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("R13").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("S13").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("T13").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("U13").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("V13").style = {
+			font: fontBold,
+			alignment: textCenter,
+			border: borderThin,
+		};
+
+		//column for data
+		worksheet.getCell("B4").style = {
+			border: borderThin,
+			alignment: textCenter,
+		};
+		worksheet.getCell("B6").style = {
+			border: borderThin,
+			alignment: textCenter,
+		};
+		worksheet.getCell("B8").style = {
+			border: borderThin,
+			alignment: textCenter,
+		};
+		worksheet.getCell("E4").style = {
+			border: borderThin,
+			alignment: textCenter,
+		};
+		worksheet.getCell("E5").style = {
+			border: borderThin,
+			alignment: textCenter,
+		};
+		worksheet.getCell("E6").style = {
+			border: borderThin,
+			alignment: textCenter,
+		};
+		worksheet.getCell("E7").style = {
+			border: borderThin,
+			alignment: textCenter,
+		};
+		worksheet.getCell("E8").style = {
+			border: borderThin,
+			alignment: textCenter,
+		};
+		worksheet.getCell("E9").style = {
+			border: borderThin,
+			alignment: textCenter,
+		};
+		worksheet.getCell("E10").style = {
+			border: borderThin,
+			alignment: textCenter,
+		};
+		worksheet.getCell("H4").style = {
+			border: borderThin,
+			alignment: textCenter,
+		};
+		worksheet.getCell("H5").style = {
+			border: borderThin,
+			alignment: textCenter,
+		};
+		worksheet.getCell("H6").style = {
+			border: borderThin,
+			alignment: textCenter,
+		};
+		worksheet.getCell("H7").style = {
+			border: borderThin,
+			alignment: textCenter,
+		};
+		worksheet.getCell("H8").style = {
+			border: borderThin,
+			alignment: textCenter,
+		};
+		worksheet.getCell("H9").style = {
+			border: borderThin,
+			alignment: textCenter,
+		};
+		worksheet.getCell("H10").style = {
+			border: borderThin,
+			alignment: textCenter,
+		};
+		worksheet.getCell("K5").style = {
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("K7").style = {
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("L5").style = {
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("L7").style = {
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("M5").style = {
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("M7").style = {
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("N5").style = {
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("N7").style = {
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("N9").style = {
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("O6").style = {
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("P6").style = {
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("Q4").style = {
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("Q6").style = {
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("R6").style = {
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("S6").style = {
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("T6").style = {
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("U4").style = {
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("U6").style = {
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("V6").style = {
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("S7").style = {
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("S9").style = {
+			fill: yellowHeader,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("W6").style = {
+			fill: yellowHeader,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("X6").style = {
+			fill: yellowHeader,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("Y4").style = {
+			fill: yellowHeader,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("Y6").style = {
+			fill: yellowHeader,
+			alignment: textCenter,
+			border: borderThin,
+		};
+		worksheet.getCell("Z6").style = {
+			fill: yellowHeader,
+			alignment: textCenter,
+			border: borderThin,
+		};
+
+		await workbook.xlsx.writeFile(`${path}/summary_report.xlsx`).then(() => {
+			res.download(
+				`${path}/summary_report.xlsx`,
+				"summary_report.xlsx",
+				(err) => {
+					if (err) {
+						console.log(err);
+					} else {
+						fs.unlinkSync(`${path}/summary_report.xlsx`);
+					}
+				}
+			);
+		});
+	} catch (error) {
+		console.log(error);
+		res.json({ status: "failed" });
+	}
+};
+
+module.exports = {
+	exportExcel,
+};
