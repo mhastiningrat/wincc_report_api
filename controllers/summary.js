@@ -1500,6 +1500,7 @@ const exportExcel = async (req, res) => {
 		worksheet.getCell("A" + startNotes).border = borderBold;
 		worksheet.getCell("A" + startNotes).fill = grayHeader;
 		worksheet.getCell("A" + startNotes).alignment = textCenter;
+		worksheet.getCell("A" + startNotes).font = fontBold;
 
 		worksheet.mergeCells(
 			"A" + (startNotes + 1) + ":" + "V" + (startNotes + 10)
