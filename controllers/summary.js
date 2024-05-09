@@ -923,6 +923,7 @@ const exportExcel = async (req, res) => {
 
 		worksheet.getCell("G" + (rowCoalReclaiming + 13 + 10)).value =
 			"Along Side (First Line)";
+		worksheet.getCell("G" + (rowCoalReclaiming + 13 + 10)).font = fontBold;
 		worksheet.getCell("G" + (rowCoalReclaiming + 13 + 9)).font = fontBold;
 		worksheet.getCell("G" + (rowCoalReclaiming + 13 + 9)).alignment =
 			textCenter;
@@ -937,6 +938,7 @@ const exportExcel = async (req, res) => {
 		);
 		worksheet.getCell("H" + (rowCoalReclaiming + 13 + 10)).value =
 			"Commenced Loading";
+		worksheet.getCell("H" + (rowCoalReclaiming + 13 + 10)).font = fontBold;
 		worksheet.getCell("H" + (rowCoalReclaiming + 13 + 9)).font = fontBold;
 		worksheet.getCell("H" + (rowCoalReclaiming + 13 + 9)).alignment =
 			textCenter;
@@ -951,6 +953,7 @@ const exportExcel = async (req, res) => {
 		);
 		worksheet.getCell("J" + (rowCoalReclaiming + 13 + 10)).value =
 			"Completed Loading";
+		worksheet.getCell("J" + (rowCoalReclaiming + 13 + 10)).font = fontBold;
 		worksheet.getCell("J" + (rowCoalReclaiming + 13 + 9)).font = fontBold;
 		worksheet.getCell("J" + (rowCoalReclaiming + 13 + 9)).alignment =
 			textCenter;
@@ -958,6 +961,7 @@ const exportExcel = async (req, res) => {
 
 		worksheet.getCell("L" + (rowCoalReclaiming + 13 + 10)).value =
 			"Cast Off (Last Line)";
+		worksheet.getCell("L" + (rowCoalReclaiming + 13 + 10)).font = fontBold;
 		worksheet.getCell("L" + (rowCoalReclaiming + 13 + 9)).font = fontBold;
 		worksheet.getCell("L" + (rowCoalReclaiming + 13 + 9)).alignment =
 			textCenter;
@@ -972,6 +976,7 @@ const exportExcel = async (req, res) => {
 		);
 		worksheet.getCell("M" + (rowCoalReclaiming + 13 + 10)).value =
 			"Total Loading Time";
+		worksheet.getCell("M" + (rowCoalReclaiming + 13 + 10)).font = fontBold;
 		worksheet.getCell("M" + (rowCoalReclaiming + 13 + 9)).font = fontBold;
 		worksheet.getCell("M" + (rowCoalReclaiming + 13 + 9)).alignment =
 			textCenter;
