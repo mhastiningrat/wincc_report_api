@@ -9,7 +9,9 @@ const {
 	textLeft,
 	yellowHeader,
 	textRight,
+	fontBolder,
 } = require("../utils/excel");
+const moment = require("moment");
 
 const exportExcel = async (req, res) => {
 	try {
@@ -19,6 +21,12 @@ const exportExcel = async (req, res) => {
 		});
 		const path = "./file";
 		// creating header column
+		worksheet.mergeCells("A1:U1");
+		worksheet.getCell("A1").value =
+			"COAL TERMINAL SUMMARY REPORT 12 HOURS SHIFT";
+		worksheet.getCell("A1").font = fontBolder;
+		worksheet.getCell("A1").alignment = textCenter;
+
 		worksheet.mergeCells("A3:I3");
 		worksheet.mergeCells("J3:N3");
 		worksheet.mergeCells("O3:Z3");
@@ -311,171 +319,142 @@ const exportExcel = async (req, res) => {
 		for (let i in data) {
 			firstRow++;
 			worksheet.getCell("A" + firstRow).value = data[i].a;
-			worksheet.getCell("A" + firstRow).style = {
-				alignment: textCenter,
-				border: borderThin,
-			};
+			worksheet.getCell("A" + firstRow).alignment = textCenter;
+			worksheet.getCell("A" + firstRow).border = borderThin;
+
 			worksheet.getCell("B" + firstRow).value = data[i].b;
-			worksheet.getCell("B" + firstRow).style = {
-				alignment: textCenter,
-				border: borderThin,
-			};
+			worksheet.getCell("B" + firstRow).alignment = textCenter;
+			worksheet.getCell("B" + firstRow).border = borderThin;
+
 			worksheet.getCell("C" + firstRow).value = data[i].c;
-			worksheet.getCell("C" + firstRow).style = {
-				alignment: textCenter,
-				border: borderThin,
-			};
+			worksheet.getCell("C" + firstRow).alignment = textCenter;
+			worksheet.getCell("C" + firstRow).border = borderThin;
+
 			worksheet.getCell("D" + firstRow).value = data[i].d;
-			worksheet.getCell("D" + firstRow).style = {
-				alignment: textCenter,
-				border: borderThin,
-			};
+			worksheet.getCell("D" + firstRow).alignment = textCenter;
+			worksheet.getCell("D" + firstRow).border = borderThin;
+
 			worksheet.getCell("E" + firstRow).value = data[i].e;
-			worksheet.getCell("E" + firstRow).style = {
-				alignment: textCenter,
-				border: borderThin,
-			};
+			worksheet.getCell("E" + firstRow).alignment = textCenter;
+			worksheet.getCell("E" + firstRow).border = borderThin;
+
 			worksheet.getCell("F" + firstRow).value = data[i].f;
-			worksheet.getCell("F" + firstRow).style = {
-				alignment: textCenter,
-				border: borderThin,
-			};
+			worksheet.getCell("F" + firstRow).alignment = textCenter;
+			worksheet.getCell("F" + firstRow).border = borderThin;
+
 			worksheet.getCell("G" + firstRow).value = data[i].g;
-			worksheet.getCell("G" + firstRow).style = {
-				alignment: textCenter,
-				border: borderThin,
-			};
+			worksheet.getCell("G" + firstRow).alignment = textCenter;
+			worksheet.getCell("G" + firstRow).border = borderThin;
+
 			worksheet.getCell("H" + firstRow).value = data[i].h;
-			worksheet.getCell("H" + firstRow).style = {
-				alignment: textCenter,
-				border: borderThin,
-			};
+			worksheet.getCell("H" + firstRow).alignment = textCenter;
+			worksheet.getCell("H" + firstRow).border = borderThin;
+
 			worksheet.getCell("I" + firstRow).value = data[i].i;
-			worksheet.getCell("I" + firstRow).style = {
-				alignment: textCenter,
-				border: borderThin,
-			};
+			worksheet.getCell("I" + firstRow).alignment = textCenter;
+			worksheet.getCell("I" + firstRow).border = borderThin;
+
 			worksheet.getCell("J" + firstRow).value = data[i].j;
-			worksheet.getCell("J" + firstRow).style = {
-				alignment: textCenter,
-				border: borderThin,
-			};
+			worksheet.getCell("J" + firstRow).alignment = textCenter;
+			worksheet.getCell("J" + firstRow).border = borderThin;
+
 			worksheet.getCell("K" + firstRow).value = data[i].k;
-			worksheet.getCell("K" + firstRow).style = {
-				alignment: textCenter,
-				border: borderThin,
-			};
+			worksheet.getCell("K" + firstRow).alignment = textCenter;
+			worksheet.getCell("K" + firstRow).border = borderThin;
+
 			worksheet.getCell("L" + firstRow).value = data[i].l;
-			worksheet.getCell("L" + firstRow).style = {
-				alignment: textCenter,
-				border: borderThin,
-			};
+			worksheet.getCell("L" + firstRow).alignment = textCenter;
+			worksheet.getCell("L" + firstRow).border = borderThin;
+
 			if (data[i].l) {
 				worksheet.mergeCells("M" + firstRow + ":" + "N" + firstRow);
 			}
 
 			worksheet.getCell("M" + firstRow).value = data[i].m;
-			worksheet.getCell("M" + firstRow).style = {
-				alignment: textCenter,
-				border: borderThin,
-			};
+			worksheet.getCell("M" + firstRow).alignment = textCenter;
+			worksheet.getCell("M" + firstRow).border = borderThin;
+
 			worksheet.getCell("O" + firstRow).value = data[i].o;
-			worksheet.getCell("O" + firstRow).style = {
-				alignment: textCenter,
-				border: borderThin,
-			};
+			worksheet.getCell("O" + firstRow).alignment = textCenter;
+			worksheet.getCell("O" + firstRow).border = borderThin;
+
 			worksheet.getCell("P" + firstRow).value = data[i].p;
-			worksheet.getCell("P" + firstRow).style = {
-				alignment: textCenter,
-				border: borderThin,
-			};
+			worksheet.getCell("P" + firstRow).alignment = textCenter;
+			worksheet.getCell("P" + firstRow).border = borderThin;
+
 			worksheet.getCell("Q" + firstRow).value = data[i].q;
-			worksheet.getCell("Q" + firstRow).style = {
-				alignment: textCenter,
-				border: borderThin,
-			};
+			worksheet.getCell("Q" + firstRow).alignment = textCenter;
+			worksheet.getCell("Q" + firstRow).border = borderThin;
+
 			worksheet.getCell("R" + firstRow).value = data[i].r;
-			worksheet.getCell("R" + firstRow).style = {
-				alignment: textCenter,
-				border: borderThin,
-			};
+			worksheet.getCell("R" + firstRow).alignment = textCenter;
+			worksheet.getCell("R" + firstRow).border = borderThin;
+
 			worksheet.getCell("S" + firstRow).value = data[i].s;
-			worksheet.getCell("S" + firstRow).style = {
-				alignment: textCenter,
-				border: borderThin,
-			};
+			worksheet.getCell("S" + firstRow).alignment = textCenter;
+			worksheet.getCell("S" + firstRow).border = borderThin;
+
 			worksheet.getCell("T" + firstRow).value = data[i].t;
-			worksheet.getCell("T" + firstRow).style = {
-				alignment: textCenter,
-				border: borderThin,
-			};
+			worksheet.getCell("T" + firstRow).alignment = textCenter;
+			worksheet.getCell("T" + firstRow).border = borderThin;
+
 			worksheet.getCell("U" + firstRow).value = data[i].u;
-			worksheet.getCell("U" + firstRow).style = {
-				alignment: textCenter,
-				border: borderThin,
-			};
+			worksheet.getCell("U" + firstRow).alignment = textCenter;
+			worksheet.getCell("U" + firstRow).border = borderThin;
+
 			worksheet.getCell("V" + firstRow).value = data[i].v;
-			worksheet.getCell("V" + firstRow).style = {
-				alignment: textCenter,
-				border: borderThin,
-			};
+			worksheet.getCell("V" + firstRow).alignment = textCenter;
+			worksheet.getCell("V" + firstRow).border = borderThin;
+
 			if (data[i].l) {
 				rowCoalReclaiming++;
 			}
 			//===========================================================================================
 			worksheet.getCell("L" + (rowCoalReclaiming + 13 + 1)).value =
 				"OLC#1 Bypass";
-			worksheet.getCell("L" + (rowCoalReclaiming + 13 + 1)).style = {
-				border: borderThin,
-				font: fontBold,
-				alignment: textCenter,
-			};
+			worksheet.getCell("L" + (rowCoalReclaiming + 13 + 1)).border = borderThin;
+			worksheet.getCell("L" + (rowCoalReclaiming + 13 + 1)).font = fontBold;
+			worksheet.getCell("L" + (rowCoalReclaiming + 13 + 1)).alignment =
+				textCenter;
+
 			//===========================================================================================
 			worksheet.getCell("L" + (rowCoalReclaiming + 13 + 2)).value =
 				"OLC#1 Bypass";
-			worksheet.getCell("L" + (rowCoalReclaiming + 13 + 2)).style = {
-				border: borderThin,
-				font: fontBold,
-				alignment: textCenter,
-			};
-
+			worksheet.getCell("L" + (rowCoalReclaiming + 13 + 2)).border = borderThin;
+			worksheet.getCell("L" + (rowCoalReclaiming + 13 + 2)).font = fontBold;
+			worksheet.getCell("L" + (rowCoalReclaiming + 13 + 2)).alignment =
+				textCenter;
 			//===========================================================================================
 			worksheet.getCell("L" + (rowCoalReclaiming + 13 + 3)).value =
 				"OLC#1 Bypass";
-			worksheet.getCell("L" + (rowCoalReclaiming + 13 + 3)).style = {
-				border: borderThin,
-				font: fontBold,
-				alignment: textCenter,
-				fill: yellowHeader,
-			};
+			worksheet.getCell("L" + (rowCoalReclaiming + 13 + 3)).border = borderThin;
+			worksheet.getCell("L" + (rowCoalReclaiming + 13 + 3)).font = fontBold;
+			worksheet.getCell("L" + (rowCoalReclaiming + 13 + 3)).alignment =
+				textCenter;
 
 			//===========================================================================================
 			worksheet.getCell("L" + (rowCoalReclaiming + 13 + 4)).value =
 				"OLC#2 Bypass";
-			worksheet.getCell("L" + (rowCoalReclaiming + 13 + 4)).style = {
-				border: borderThin,
-				font: fontBold,
-				alignment: textCenter,
-			};
+			worksheet.getCell("L" + (rowCoalReclaiming + 13 + 4)).border = borderThin;
+			worksheet.getCell("L" + (rowCoalReclaiming + 13 + 4)).font = fontBold;
+			worksheet.getCell("L" + (rowCoalReclaiming + 13 + 4)).alignment =
+				textCenter;
 
 			//===========================================================================================
 			worksheet.getCell("L" + (rowCoalReclaiming + 13 + 5)).value =
 				"OLC#2 Bypass";
-			worksheet.getCell("L" + (rowCoalReclaiming + 13 + 5)).style = {
-				border: borderThin,
-				font: fontBold,
-				alignment: textCenter,
-			};
+			worksheet.getCell("L" + (rowCoalReclaiming + 13 + 5)).border = borderThin;
+			worksheet.getCell("L" + (rowCoalReclaiming + 13 + 5)).font = fontBold;
+			worksheet.getCell("L" + (rowCoalReclaiming + 13 + 5)).alignment =
+				textCenter;
 
 			//===========================================================================================
 			worksheet.getCell("L" + (rowCoalReclaiming + 13 + 6)).value =
 				"OLC#2 Bypass";
-			worksheet.getCell("L" + (rowCoalReclaiming + 13 + 6)).style = {
-				border: borderThin,
-				font: fontBold,
-				alignment: textCenter,
-				fill: yellowHeader,
-			};
+			worksheet.getCell("L" + (rowCoalReclaiming + 13 + 6)).border = borderThin;
+			worksheet.getCell("L" + (rowCoalReclaiming + 13 + 6)).font = fontBold;
+			worksheet.getCell("L" + (rowCoalReclaiming + 13 + 6)).alignment =
+				textCenter;
 
 			//===========================================================================================
 
@@ -483,9 +462,6 @@ const exportExcel = async (req, res) => {
 		}
 		let selisihRow = 6;
 		for (let i = 0; selisihRow > i; selisihRow--) {
-			console.log(selisihRow);
-			console.log("===============================");
-			console.log("A" + (rowCoalReclaiming + 13 + selisihRow));
 			if (selisihRow == 5) {
 				worksheet.mergeCells(
 					"A" +
@@ -503,11 +479,13 @@ const exportExcel = async (req, res) => {
 				);
 				worksheet.getCell("A" + (rowCoalReclaiming + 13 + selisihRow)).value =
 					"TOTAL STACKING";
-				worksheet.getCell("A" + (rowCoalReclaiming + 13 + selisihRow)).style = {
-					border: borderThin,
-					alignment: textRight,
-					font: fontBold,
-				};
+				worksheet.getCell("A" + (rowCoalReclaiming + 13 + selisihRow)).border =
+					borderThin;
+				worksheet.getCell(
+					"A" + (rowCoalReclaiming + 13 + selisihRow)
+				).alignment = textRight;
+				worksheet.getCell("A" + (rowCoalReclaiming + 13 + selisihRow)).font =
+					fontBold;
 			} else if (selisihRow == 6) {
 				worksheet.mergeCells(
 					"A" +
@@ -516,97 +494,117 @@ const exportExcel = async (req, res) => {
 						"K" +
 						(rowCoalReclaiming + 13 + selisihRow)
 				);
-				worksheet.getCell("A" + (rowCoalReclaiming + 13 + selisihRow)).style = {
-					fill: yellowHeader,
-					border: borderThin,
-				};
+				worksheet.getCell("A" + (rowCoalReclaiming + 13 + selisihRow)).fill =
+					yellowHeader;
+				worksheet.getCell("A" + (rowCoalReclaiming + 13 + selisihRow)).border =
+					borderThin;
 			} else {
-				worksheet.getCell("A" + (rowCoalReclaiming + 13 + selisihRow)).style = {
-					alignment: textCenter,
-					border: borderThin,
-				};
-				worksheet.getCell("J" + (rowCoalReclaiming + 13 + selisihRow)).style = {
-					alignment: textCenter,
-					border: borderThin,
-				};
-			}
+				worksheet.getCell(
+					"A" + (rowCoalReclaiming + 13 + selisihRow)
+				).alignment = textCenter;
+				worksheet.getCell("A" + (rowCoalReclaiming + 13 + selisihRow)).border =
+					borderThin;
 
-			worksheet.getCell("B" + (rowCoalReclaiming + 13 + selisihRow)).style = {
-				alignment: textCenter,
-				border: borderThin,
-			};
-			worksheet.getCell("C" + (rowCoalReclaiming + 13 + selisihRow)).style = {
-				alignment: textCenter,
-				border: borderThin,
-			};
-			worksheet.getCell("D" + (rowCoalReclaiming + 13 + selisihRow)).style = {
-				alignment: textCenter,
-				border: borderThin,
-			};
-			worksheet.getCell("E" + (rowCoalReclaiming + 13 + selisihRow)).style = {
-				alignment: textCenter,
-				border: borderThin,
-			};
-			worksheet.getCell("F" + (rowCoalReclaiming + 13 + selisihRow)).style = {
-				alignment: textCenter,
-				border: borderThin,
-			};
-			worksheet.getCell("G" + (rowCoalReclaiming + 13 + selisihRow)).style = {
-				alignment: textCenter,
-				border: borderThin,
-			};
-			worksheet.getCell("H" + (rowCoalReclaiming + 13 + selisihRow)).style = {
-				alignment: textCenter,
-				border: borderThin,
-			};
-			worksheet.getCell("I" + (rowCoalReclaiming + 13 + selisihRow)).style = {
-				alignment: textCenter,
-				border: borderThin,
-			};
-			worksheet.getCell("K" + (rowCoalReclaiming + 13 + selisihRow)).style = {
-				alignment: textCenter,
-				border: borderThin,
-			};
-			worksheet.getCell("M" + (rowCoalReclaiming + 13 + selisihRow)).style = {
-				alignment: textCenter,
-				border: borderThin,
-			};
-			worksheet.getCell("N" + (rowCoalReclaiming + 13 + selisihRow)).style = {
-				alignment: textCenter,
-				border: borderThin,
-			};
-			worksheet.getCell("O" + (rowCoalReclaiming + 13 + selisihRow)).style = {
-				alignment: textCenter,
-				border: borderThin,
-			};
-			worksheet.getCell("P" + (rowCoalReclaiming + 13 + selisihRow)).style = {
-				alignment: textCenter,
-				border: borderThin,
-			};
-			worksheet.getCell("Q" + (rowCoalReclaiming + 13 + selisihRow)).style = {
-				alignment: textCenter,
-				border: borderThin,
-			};
-			worksheet.getCell("R" + (rowCoalReclaiming + 13 + selisihRow)).style = {
-				alignment: textCenter,
-				border: borderThin,
-			};
-			worksheet.getCell("S" + (rowCoalReclaiming + 13 + selisihRow)).style = {
-				alignment: textCenter,
-				border: borderThin,
-			};
-			worksheet.getCell("T" + (rowCoalReclaiming + 13 + selisihRow)).style = {
-				alignment: textCenter,
-				border: borderThin,
-			};
-			worksheet.getCell("U" + (rowCoalReclaiming + 13 + selisihRow)).style = {
-				alignment: textCenter,
-				border: borderThin,
-			};
-			worksheet.getCell("V" + (rowCoalReclaiming + 13 + selisihRow)).style = {
-				alignment: textCenter,
-				border: borderThin,
-			};
+				worksheet.getCell(
+					"J" + (rowCoalReclaiming + 13 + selisihRow)
+				).alignment = textCenter;
+				worksheet.getCell("J" + (rowCoalReclaiming + 13 + selisihRow)).border =
+					borderThin;
+			}
+			worksheet.getCell("B" + (rowCoalReclaiming + 13 + selisihRow)).alignment =
+				textCenter;
+			worksheet.getCell("B" + (rowCoalReclaiming + 13 + selisihRow)).border =
+				borderThin;
+
+			worksheet.getCell("C" + (rowCoalReclaiming + 13 + selisihRow)).alignment =
+				textCenter;
+			worksheet.getCell("C" + (rowCoalReclaiming + 13 + selisihRow)).border =
+				borderThin;
+
+			worksheet.getCell("D" + (rowCoalReclaiming + 13 + selisihRow)).alignment =
+				textCenter;
+			worksheet.getCell("D" + (rowCoalReclaiming + 13 + selisihRow)).border =
+				borderThin;
+
+			worksheet.getCell("E" + (rowCoalReclaiming + 13 + selisihRow)).alignment =
+				textCenter;
+			worksheet.getCell("E" + (rowCoalReclaiming + 13 + selisihRow)).border =
+				borderThin;
+
+			worksheet.getCell("F" + (rowCoalReclaiming + 13 + selisihRow)).alignment =
+				textCenter;
+			worksheet.getCell("F" + (rowCoalReclaiming + 13 + selisihRow)).border =
+				borderThin;
+
+			worksheet.getCell("G" + (rowCoalReclaiming + 13 + selisihRow)).alignment =
+				textCenter;
+			worksheet.getCell("G" + (rowCoalReclaiming + 13 + selisihRow)).border =
+				borderThin;
+
+			worksheet.getCell("H" + (rowCoalReclaiming + 13 + selisihRow)).alignment =
+				textCenter;
+			worksheet.getCell("H" + (rowCoalReclaiming + 13 + selisihRow)).border =
+				borderThin;
+
+			worksheet.getCell("I" + (rowCoalReclaiming + 13 + selisihRow)).alignment =
+				textCenter;
+			worksheet.getCell("I" + (rowCoalReclaiming + 13 + selisihRow)).border =
+				borderThin;
+
+			worksheet.getCell("K" + (rowCoalReclaiming + 13 + selisihRow)).alignment =
+				textCenter;
+			worksheet.getCell("K" + (rowCoalReclaiming + 13 + selisihRow)).border =
+				borderThin;
+
+			worksheet.getCell("M" + (rowCoalReclaiming + 13 + selisihRow)).alignment =
+				textCenter;
+			worksheet.getCell("M" + (rowCoalReclaiming + 13 + selisihRow)).border =
+				borderThin;
+
+			worksheet.getCell("N" + (rowCoalReclaiming + 13 + selisihRow)).alignment =
+				textCenter;
+			worksheet.getCell("N" + (rowCoalReclaiming + 13 + selisihRow)).border =
+				borderThin;
+
+			worksheet.getCell("O" + (rowCoalReclaiming + 13 + selisihRow)).alignment =
+				textCenter;
+			worksheet.getCell("O" + (rowCoalReclaiming + 13 + selisihRow)).border =
+				borderThin;
+
+			worksheet.getCell("P" + (rowCoalReclaiming + 13 + selisihRow)).alignment =
+				textCenter;
+			worksheet.getCell("P" + (rowCoalReclaiming + 13 + selisihRow)).border =
+				borderThin;
+
+			worksheet.getCell("Q" + (rowCoalReclaiming + 13 + selisihRow)).alignment =
+				textCenter;
+			worksheet.getCell("Q" + (rowCoalReclaiming + 13 + selisihRow)).border =
+				borderThin;
+
+			worksheet.getCell("R" + (rowCoalReclaiming + 13 + selisihRow)).alignment =
+				textCenter;
+			worksheet.getCell("R" + (rowCoalReclaiming + 13 + selisihRow)).border =
+				borderThin;
+
+			worksheet.getCell("S" + (rowCoalReclaiming + 13 + selisihRow)).alignment =
+				textCenter;
+			worksheet.getCell("S" + (rowCoalReclaiming + 13 + selisihRow)).border =
+				borderThin;
+
+			worksheet.getCell("T" + (rowCoalReclaiming + 13 + selisihRow)).alignment =
+				textCenter;
+			worksheet.getCell("T" + (rowCoalReclaiming + 13 + selisihRow)).border =
+				borderThin;
+
+			worksheet.getCell("U" + (rowCoalReclaiming + 13 + selisihRow)).alignment =
+				textCenter;
+			worksheet.getCell("U" + (rowCoalReclaiming + 13 + selisihRow)).border =
+				borderThin;
+
+			worksheet.getCell("V" + (rowCoalReclaiming + 13 + selisihRow)).alignment =
+				textCenter;
+			worksheet.getCell("V" + (rowCoalReclaiming + 13 + selisihRow)).border =
+				borderThin;
 		}
 		worksheet.mergeCells(
 			"L" +
@@ -624,11 +622,10 @@ const exportExcel = async (req, res) => {
 		);
 		worksheet.getCell("L" + (rowCoalReclaiming + 13 + 7)).value =
 			"TOTAL RECLAIMING";
-		worksheet.getCell("L" + (rowCoalReclaiming + 13 + 7)).style = {
-			border: borderThin,
-			alignment: textRight,
-			font: fontBold,
-		};
+		worksheet.getCell("L" + (rowCoalReclaiming + 13 + 7)).border = borderThin;
+		worksheet.getCell("L" + (rowCoalReclaiming + 13 + 7)).alignment = textRight;
+		worksheet.getCell("L" + (rowCoalReclaiming + 13 + 7)).font = fontBold;
+
 		worksheet.mergeCells(
 			"U" +
 				(rowCoalReclaiming + 13 + 7) +
@@ -636,15 +633,13 @@ const exportExcel = async (req, res) => {
 				"V" +
 				(rowCoalReclaiming + 13 + 7)
 		);
-		worksheet.getCell("U" + (rowCoalReclaiming + 13 + 7)).style = {
-			border: borderThin,
-			alignment: textRight,
-			font: fontBold,
-		};
-		worksheet.getCell("A" + (rowCoalReclaiming + 13 + 7)).style = {
-			border: borderThin,
-			fill: yellowHeader,
-		};
+		worksheet.getCell("U" + (rowCoalReclaiming + 13 + 7)).border = borderThin;
+		worksheet.getCell("U" + (rowCoalReclaiming + 13 + 7)).alignment = textRight;
+		worksheet.getCell("U" + (rowCoalReclaiming + 13 + 7)).font = fontBold;
+
+		worksheet.getCell("A" + (rowCoalReclaiming + 13 + 7)).border = borderThin;
+		worksheet.getCell("A" + (rowCoalReclaiming + 13 + 7)).fill = yellowHeader;
+
 		worksheet.mergeCells(
 			"M" +
 				(rowCoalReclaiming + 13 + 1) +
@@ -866,12 +861,11 @@ const exportExcel = async (req, res) => {
 		);
 		worksheet.getCell("A" + (rowCoalReclaiming + 13 + 8)).value =
 			"BARGE LOADING SHIPPING DETAIL";
-		worksheet.getCell("A" + (rowCoalReclaiming + 13 + 8)).style = {
-			font: textCenter,
-			fill: grayHeader,
-			border: borderBold,
-			font: fontBold,
-		};
+		worksheet.getCell("A" + (rowCoalReclaiming + 13 + 8)).alignment =
+			textCenter;
+		worksheet.getCell("A" + (rowCoalReclaiming + 13 + 8)).fill = grayHeader;
+		worksheet.getCell("A" + (rowCoalReclaiming + 13 + 8)).border = borderBold;
+		worksheet.getCell("A" + (rowCoalReclaiming + 13 + 8)).font = fontBold;
 
 		//Barge
 		worksheet.mergeCells(
@@ -882,11 +876,11 @@ const exportExcel = async (req, res) => {
 				(rowCoalReclaiming + 13 + 10)
 		);
 		worksheet.getCell("A" + (rowCoalReclaiming + 13 + 9)).value = "No.";
-		worksheet.getCell("A" + (rowCoalReclaiming + 13 + 9)).style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
+		worksheet.getCell("A" + (rowCoalReclaiming + 13 + 9)).font = fontBold;
+		worksheet.getCell("A" + (rowCoalReclaiming + 13 + 9)).alignment =
+			textCenter;
+		worksheet.getCell("A" + (rowCoalReclaiming + 13 + 9)).border = borderThin;
+
 		worksheet.mergeCells(
 			"B" +
 				(rowCoalReclaiming + 13 + 9) +
@@ -895,11 +889,11 @@ const exportExcel = async (req, res) => {
 				(rowCoalReclaiming + 13 + 10)
 		);
 		worksheet.getCell("B" + (rowCoalReclaiming + 13 + 9)).value = "Vessel";
-		worksheet.getCell("B" + (rowCoalReclaiming + 13 + 9)).style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
+		worksheet.getCell("B" + (rowCoalReclaiming + 13 + 9)).font = fontBold;
+		worksheet.getCell("B" + (rowCoalReclaiming + 13 + 9)).alignment =
+			textCenter;
+		worksheet.getCell("B" + (rowCoalReclaiming + 13 + 9)).border = borderThin;
+
 		worksheet.mergeCells(
 			"E" +
 				(rowCoalReclaiming + 13 + 9) +
@@ -908,11 +902,11 @@ const exportExcel = async (req, res) => {
 				(rowCoalReclaiming + 13 + 9)
 		);
 		worksheet.getCell("E" + (rowCoalReclaiming + 13 + 9)).value = "Barge";
-		worksheet.getCell("E" + (rowCoalReclaiming + 13 + 9)).style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
+		worksheet.getCell("E" + (rowCoalReclaiming + 13 + 9)).font = fontBold;
+		worksheet.getCell("E" + (rowCoalReclaiming + 13 + 9)).alignment =
+			textCenter;
+		worksheet.getCell("E" + (rowCoalReclaiming + 13 + 9)).border = borderThin;
+
 		worksheet.mergeCells(
 			"E" +
 				(rowCoalReclaiming + 13 + 10) +
@@ -928,11 +922,11 @@ const exportExcel = async (req, res) => {
 		};
 		worksheet.getCell("G" + (rowCoalReclaiming + 13 + 10)).value =
 			"Along Side (First Line)";
-		worksheet.getCell("G" + (rowCoalReclaiming + 13 + 10)).style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
+		worksheet.getCell("G" + (rowCoalReclaiming + 13 + 9)).font = fontBold;
+		worksheet.getCell("G" + (rowCoalReclaiming + 13 + 9)).alignment =
+			textCenter;
+		worksheet.getCell("G" + (rowCoalReclaiming + 13 + 9)).border = borderThin;
+
 		worksheet.mergeCells(
 			"H" +
 				(rowCoalReclaiming + 13 + 10) +
@@ -942,11 +936,11 @@ const exportExcel = async (req, res) => {
 		);
 		worksheet.getCell("H" + (rowCoalReclaiming + 13 + 10)).value =
 			"Commenced Loading";
-		worksheet.getCell("H" + (rowCoalReclaiming + 13 + 10)).style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
+		worksheet.getCell("H" + (rowCoalReclaiming + 13 + 9)).font = fontBold;
+		worksheet.getCell("H" + (rowCoalReclaiming + 13 + 9)).alignment =
+			textCenter;
+		worksheet.getCell("H" + (rowCoalReclaiming + 13 + 9)).border = borderThin;
+
 		worksheet.mergeCells(
 			"J" +
 				(rowCoalReclaiming + 13 + 10) +
@@ -956,18 +950,18 @@ const exportExcel = async (req, res) => {
 		);
 		worksheet.getCell("J" + (rowCoalReclaiming + 13 + 10)).value =
 			"Completed Loading";
-		worksheet.getCell("J" + (rowCoalReclaiming + 13 + 10)).style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
+		worksheet.getCell("J" + (rowCoalReclaiming + 13 + 9)).font = fontBold;
+		worksheet.getCell("J" + (rowCoalReclaiming + 13 + 9)).alignment =
+			textCenter;
+		worksheet.getCell("J" + (rowCoalReclaiming + 13 + 9)).border = borderThin;
+
 		worksheet.getCell("L" + (rowCoalReclaiming + 13 + 10)).value =
 			"Cast Off (Last Line)";
-		worksheet.getCell("L" + (rowCoalReclaiming + 13 + 10)).style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
+		worksheet.getCell("L" + (rowCoalReclaiming + 13 + 9)).font = fontBold;
+		worksheet.getCell("L" + (rowCoalReclaiming + 13 + 9)).alignment =
+			textCenter;
+		worksheet.getCell("L" + (rowCoalReclaiming + 13 + 9)).border = borderThin;
+
 		worksheet.mergeCells(
 			"M" +
 				(rowCoalReclaiming + 13 + 10) +
@@ -977,11 +971,10 @@ const exportExcel = async (req, res) => {
 		);
 		worksheet.getCell("M" + (rowCoalReclaiming + 13 + 10)).value =
 			"Total Loading Time";
-		worksheet.getCell("M" + (rowCoalReclaiming + 13 + 10)).style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
+		worksheet.getCell("M" + (rowCoalReclaiming + 13 + 9)).font = fontBold;
+		worksheet.getCell("M" + (rowCoalReclaiming + 13 + 9)).alignment =
+			textCenter;
+		worksheet.getCell("M" + (rowCoalReclaiming + 13 + 9)).border = borderThin;
 
 		let dataBarge = [
 			{
@@ -1036,112 +1029,97 @@ const exportExcel = async (req, res) => {
 		var startBargeLoading = rowCoalReclaiming + 13 + 10;
 
 		for (let i in dataBarge) {
-			startBargeLoading ++;
+			startBargeLoading++;
 			worksheet.getCell("A" + startBargeLoading).value = dataBarge[i].a;
-			worksheet.getCell("A" + startBargeLoading).style = {
-				fill: yellowHeader,
-				alignment: textCenter,
-				border: borderThin,
-			};
+			worksheet.getCell("A" + startBargeLoading).fill = yellowHeader;
+			worksheet.getCell("A" + startBargeLoading).alignment = textCenter;
+			worksheet.getCell("A" + startBargeLoading).border = borderThin;
+
 			worksheet.mergeCells(
 				"B" + startBargeLoading + ":" + "D" + startBargeLoading
 			);
 			worksheet.getCell("B" + startBargeLoading).value = dataBarge[i].b;
-			worksheet.getCell("B" + startBargeLoading).style = {
-				fill: yellowHeader,
-				alignment: textCenter,
-				border: borderThin,
-			};
+			worksheet.getCell("B" + startBargeLoading).fill = yellowHeader;
+			worksheet.getCell("B" + startBargeLoading).alignment = textCenter;
+			worksheet.getCell("B" + startBargeLoading).border = borderThin;
+
 			worksheet.mergeCells(
 				"E" + startBargeLoading + ":" + "F" + startBargeLoading
 			);
 			worksheet.getCell("E" + startBargeLoading).value = dataBarge[i].e;
-			worksheet.getCell("E" + startBargeLoading).style = {
-				fill: yellowHeader,
-				alignment: textCenter,
-				border: borderThin,
-			};
+			worksheet.getCell("E" + startBargeLoading).fill = yellowHeader;
+			worksheet.getCell("E" + startBargeLoading).alignment = textCenter;
+			worksheet.getCell("E" + startBargeLoading).border = borderThin;
+
 			worksheet.getCell("G" + startBargeLoading).value = dataBarge[i].g;
-			worksheet.getCell("G" + startBargeLoading).style = {
-				fill: yellowHeader,
-				alignment: textCenter,
-				border: borderThin,
-			};
+			worksheet.getCell("G" + startBargeLoading).fill = yellowHeader;
+			worksheet.getCell("G" + startBargeLoading).alignment = textCenter;
+			worksheet.getCell("G" + startBargeLoading).border = borderThin;
+
 			worksheet.mergeCells(
 				"H" + startBargeLoading + ":" + "I" + startBargeLoading
 			);
 			worksheet.getCell("H" + startBargeLoading).value = dataBarge[i].h;
-			worksheet.getCell("H" + startBargeLoading).style = {
-				fill: yellowHeader,
-				alignment: textCenter,
-				border: borderThin,
-			};
+			worksheet.getCell("H" + startBargeLoading).fill = yellowHeader;
+			worksheet.getCell("H" + startBargeLoading).alignment = textCenter;
+			worksheet.getCell("H" + startBargeLoading).border = borderThin;
+
 			worksheet.mergeCells(
 				"J" + startBargeLoading + ":" + "K" + startBargeLoading
 			);
 			worksheet.getCell("J" + startBargeLoading).value = dataBarge[i].j;
-			worksheet.getCell("J" + startBargeLoading).style = {
-				fill: yellowHeader,
-				alignment: textCenter,
-				border: borderThin,
-			};
+			worksheet.getCell("J" + startBargeLoading).fill = yellowHeader;
+			worksheet.getCell("J" + startBargeLoading).alignment = textCenter;
+			worksheet.getCell("J" + startBargeLoading).border = borderThin;
+
 			worksheet.getCell("L" + startBargeLoading).value = dataBarge[i].l;
-			worksheet.getCell("L" + startBargeLoading).style = {
-				fill: yellowHeader,
-				alignment: textCenter,
-				border: borderThin,
-			};
+			worksheet.getCell("L" + startBargeLoading).fill = yellowHeader;
+			worksheet.getCell("L" + startBargeLoading).alignment = textCenter;
+			worksheet.getCell("L" + startBargeLoading).border = borderThin;
+
 			worksheet.mergeCells(
 				"M" + startBargeLoading + ":" + "N" + startBargeLoading
 			);
 			worksheet.getCell("M" + startBargeLoading).value = dataBarge[i].m;
-			worksheet.getCell("M" + startBargeLoading).style = {
-				fill: yellowHeader,
-				alignment: textCenter,
-				border: borderThin,
-			};
+			worksheet.getCell("M" + startBargeLoading).fill = yellowHeader;
+			worksheet.getCell("M" + startBargeLoading).alignment = textCenter;
+			worksheet.getCell("M" + startBargeLoading).border = borderThin;
+
 			worksheet.getCell("O" + startBargeLoading).value = dataBarge[i].o;
-			worksheet.getCell("O" + startBargeLoading).style = {
-				fill: yellowHeader,
-				alignment: textCenter,
-				border: borderThin,
-			};
+			worksheet.getCell("O" + startBargeLoading).fill = yellowHeader;
+			worksheet.getCell("O" + startBargeLoading).alignment = textCenter;
+			worksheet.getCell("O" + startBargeLoading).border = borderThin;
+
 			worksheet.getCell("P" + startBargeLoading).value = dataBarge[i].p;
-			worksheet.getCell("P" + startBargeLoading).style = {
-				fill: yellowHeader,
-				alignment: textCenter,
-				border: borderThin,
-			};
+			worksheet.getCell("P" + startBargeLoading).fill = yellowHeader;
+			worksheet.getCell("P" + startBargeLoading).alignment = textCenter;
+			worksheet.getCell("P" + startBargeLoading).border = borderThin;
+
 			worksheet.getCell("Q" + startBargeLoading).value = dataBarge[i].q;
-			worksheet.getCell("Q" + startBargeLoading).style = {
-				fill: yellowHeader,
-				alignment: textCenter,
-				border: borderThin,
-			};
+			worksheet.getCell("Q" + startBargeLoading).fill = yellowHeader;
+			worksheet.getCell("Q" + startBargeLoading).alignment = textCenter;
+			worksheet.getCell("Q" + startBargeLoading).border = borderThin;
+
 			worksheet.getCell("R" + startBargeLoading).value = dataBarge[i].r;
-			worksheet.getCell("R" + startBargeLoading).style = {
-				fill: yellowHeader,
-				alignment: textCenter,
-				border: borderThin,
-			};
+			worksheet.getCell("R" + startBargeLoading).fill = yellowHeader;
+			worksheet.getCell("R" + startBargeLoading).alignment = textCenter;
+			worksheet.getCell("R" + startBargeLoading).border = borderThin;
+
 			worksheet.mergeCells(
 				"S" + startBargeLoading + ":" + "T" + startBargeLoading
 			);
 			worksheet.getCell("S" + startBargeLoading).value = dataBarge[i].s;
-			worksheet.getCell("S" + startBargeLoading).style = {
-				fill: yellowHeader,
-				alignment: textCenter,
-				border: borderThin,
-			};
+			worksheet.getCell("S" + startBargeLoading).fill = yellowHeader;
+			worksheet.getCell("S" + startBargeLoading).alignment = textCenter;
+			worksheet.getCell("S" + startBargeLoading).border = borderThin;
+
 			worksheet.mergeCells(
 				"U" + startBargeLoading + ":" + "V" + startBargeLoading
 			);
 			worksheet.getCell("U" + startBargeLoading).value = dataBarge[i].u;
-			worksheet.getCell("U" + startBargeLoading).style = {
-				fill: yellowHeader,
-				alignment: textCenter,
-				border: borderThin,
-			};
+			worksheet.getCell("U" + startBargeLoading).fill = yellowHeader;
+			worksheet.getCell("U" + startBargeLoading).alignment = textCenter;
+			worksheet.getCell("U" + startBargeLoading).border = borderThin;
 		}
 
 		//Weigher Data
@@ -1154,35 +1132,35 @@ const exportExcel = async (req, res) => {
 		);
 		worksheet.getCell("O" + (rowCoalReclaiming + 13 + 9)).value =
 			"Weigher Data";
-		worksheet.getCell("O" + (rowCoalReclaiming + 13 + 9)).style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
+		worksheet.getCell("O" + (rowCoalReclaiming + 13 + 9)).font = fontBold;
+		worksheet.getCell("O" + (rowCoalReclaiming + 13 + 9)).alignment =
+			textCenter;
+		worksheet.getCell("O" + (rowCoalReclaiming + 13 + 9)).border = borderThin;
+
 		worksheet.getCell("O" + (rowCoalReclaiming + 13 + 10)).value = "Quality";
-		worksheet.getCell("O" + (rowCoalReclaiming + 13 + 10)).style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
+		worksheet.getCell("O" + (rowCoalReclaiming + 13 + 10)).font = fontBold;
+		worksheet.getCell("O" + (rowCoalReclaiming + 13 + 10)).alignment =
+			textCenter;
+		worksheet.getCell("O" + (rowCoalReclaiming + 13 + 10)).border = borderThin;
+
 		worksheet.getCell("P" + (rowCoalReclaiming + 13 + 10)).value = "Start";
-		worksheet.getCell("P" + (rowCoalReclaiming + 13 + 10)).style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
+		worksheet.getCell("P" + (rowCoalReclaiming + 13 + 10)).font = fontBold;
+		worksheet.getCell("P" + (rowCoalReclaiming + 13 + 10)).alignment =
+			textCenter;
+		worksheet.getCell("P" + (rowCoalReclaiming + 13 + 10)).border = borderThin;
+
 		worksheet.getCell("Q" + (rowCoalReclaiming + 13 + 10)).value = "Stop";
-		worksheet.getCell("Q" + (rowCoalReclaiming + 13 + 10)).style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
+		worksheet.getCell("Q" + (rowCoalReclaiming + 13 + 10)).font = fontBold;
+		worksheet.getCell("Q" + (rowCoalReclaiming + 13 + 10)).alignment =
+			textCenter;
+		worksheet.getCell("Q" + (rowCoalReclaiming + 13 + 10)).border = borderThin;
+
 		worksheet.getCell("R" + (rowCoalReclaiming + 13 + 10)).value = "Total";
-		worksheet.getCell("R" + (rowCoalReclaiming + 13 + 10)).style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
+		worksheet.getCell("R" + (rowCoalReclaiming + 13 + 10)).font = fontBold;
+		worksheet.getCell("R" + (rowCoalReclaiming + 13 + 10)).alignment =
+			textCenter;
+		worksheet.getCell("R" + (rowCoalReclaiming + 13 + 10)).border = borderThin;
+
 		worksheet.mergeCells(
 			"S" +
 				(rowCoalReclaiming + 13 + 9) +
@@ -1192,11 +1170,11 @@ const exportExcel = async (req, res) => {
 		);
 		worksheet.getCell("S" + (rowCoalReclaiming + 13 + 9)).value =
 			"Tonnes Draft";
-		worksheet.getCell("S" + (rowCoalReclaiming + 13 + 9)).style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
+		worksheet.getCell("S" + (rowCoalReclaiming + 13 + 9)).font = fontBold;
+		worksheet.getCell("S" + (rowCoalReclaiming + 13 + 9)).alignment =
+			textCenter;
+		worksheet.getCell("S" + (rowCoalReclaiming + 13 + 9)).border = borderThin;
+
 		worksheet.mergeCells(
 			"U" +
 				(rowCoalReclaiming + 13 + 9) +
@@ -1206,321 +1184,339 @@ const exportExcel = async (req, res) => {
 		);
 		worksheet.getCell("U" + (rowCoalReclaiming + 13 + 9)).value =
 			"Tonnes MCC Recorded";
-		worksheet.getCell("U" + (rowCoalReclaiming + 13 + 9)).style = {
-			font: fontBold,
-			alignment: textCenter,
-			border: borderThin,
-		};
+		worksheet.getCell("U" + (rowCoalReclaiming + 13 + 9)).font = fontBold;
+		worksheet.getCell("U" + (rowCoalReclaiming + 13 + 9)).alignment =
+			textCenter;
+		worksheet.getCell("U" + (rowCoalReclaiming + 13 + 9)).border = borderThin;
 
 		//Equpment Detail
 		let startEquipmentDetail = startBargeLoading + 1;
 		let secondEquipmentDetail = startEquipmentDetail + 1;
-		console.log('startEquipmentDetail '+startEquipmentDetail)
-		console.log('startBargeLoading '+startBargeLoading)
-		console.log('dataBarge '+dataBarge.length)
+
 		worksheet.mergeCells(
 			"A" + startEquipmentDetail + ":" + "V" + startEquipmentDetail
 		);
 		worksheet.getCell("A" + startEquipmentDetail).value = "EQUIPMENT DETAIL";
-		worksheet.getCell("A" + startEquipmentDetail).style = {
-			fill: grayHeader,
-			alignment: textCenter,
-			border: borderThin,
-			font: fontBold,
-		};
+		worksheet.getCell("A" + startEquipmentDetail).fill = grayHeader;
+		worksheet.getCell("A" + startEquipmentDetail).alignment = textCenter;
+		worksheet.getCell("A" + startEquipmentDetail).border = borderThin;
+		worksheet.getCell("A" + startEquipmentDetail).font = fontBold;
+
 		worksheet.getCell("A" + secondEquipmentDetail).value = "Equipment";
-		worksheet.getCell("A" + secondEquipmentDetail).style = {
-			alignment: textCenter,
-			border: borderThin,
-			font: fontBold,
-		};
+		worksheet.getCell("A" + secondEquipmentDetail).alignment = textCenter;
+		worksheet.getCell("A" + secondEquipmentDetail).border = borderThin;
+		worksheet.getCell("A" + secondEquipmentDetail).font = fontBold;
+
 		worksheet.mergeCells(
 			"B" + secondEquipmentDetail + ":" + "C" + secondEquipmentDetail
 		);
 		worksheet.getCell("B" + secondEquipmentDetail).value = "Operator";
-		worksheet.getCell("B" + secondEquipmentDetail).style = {
-			alignment: textCenter,
-			border: borderThin,
-			font: fontBold,
-		};
+		worksheet.getCell("B" + secondEquipmentDetail).alignment = textCenter;
+		worksheet.getCell("B" + secondEquipmentDetail).border = borderThin;
+		worksheet.getCell("B" + secondEquipmentDetail).font = fontBold;
+
 		worksheet.mergeCells(
 			"D" + secondEquipmentDetail + ":" + "E" + secondEquipmentDetail
 		);
 		worksheet.getCell("D" + secondEquipmentDetail).value = "Fuel";
-		worksheet.getCell("D" + secondEquipmentDetail).style = {
-			alignment: textCenter,
-			border: borderThin,
-			font: fontBold,
-		};
+		worksheet.getCell("D" + secondEquipmentDetail).alignment = textCenter;
+		worksheet.getCell("D" + secondEquipmentDetail).border = borderThin;
+		worksheet.getCell("D" + secondEquipmentDetail).font = fontBold;
+
 		worksheet.mergeCells(
 			"F" + secondEquipmentDetail + ":" + "G" + secondEquipmentDetail
 		);
 		worksheet.getCell("F" + secondEquipmentDetail).value = "Start";
-		worksheet.getCell("F" + secondEquipmentDetail).style = {
-			alignment: textCenter,
-			border: borderThin,
-			font: fontBold,
-		};
+		worksheet.getCell("F" + secondEquipmentDetail).alignment = textCenter;
+		worksheet.getCell("F" + secondEquipmentDetail).border = borderThin;
+		worksheet.getCell("F" + secondEquipmentDetail).font = fontBold;
+
 		worksheet.mergeCells(
 			"H" + secondEquipmentDetail + ":" + "I" + secondEquipmentDetail
 		);
 		worksheet.getCell("H" + secondEquipmentDetail).value = "Stop";
-		worksheet.getCell("H" + secondEquipmentDetail).style = {
-			alignment: textCenter,
-			border: borderThin,
-			font: fontBold,
-		};
+		worksheet.getCell("H" + secondEquipmentDetail).alignment = textCenter;
+		worksheet.getCell("H" + secondEquipmentDetail).border = borderThin;
+		worksheet.getCell("H" + secondEquipmentDetail).font = fontBold;
+
 		worksheet.mergeCells(
 			"J" + secondEquipmentDetail + ":" + "K" + secondEquipmentDetail
 		);
 		worksheet.getCell("J" + secondEquipmentDetail).value = "Total Hours";
-		worksheet.getCell("J" + secondEquipmentDetail).style = {
-			alignment: textCenter,
-			border: borderThin,
-			font: fontBold,
-		};
+		worksheet.getCell("J" + secondEquipmentDetail).alignment = textCenter;
+		worksheet.getCell("J" + secondEquipmentDetail).border = borderThin;
+		worksheet.getCell("J" + secondEquipmentDetail).font = fontBold;
+
 		worksheet.getCell("L" + secondEquipmentDetail).value = "Equipment";
-		worksheet.getCell("L" + secondEquipmentDetail).style = {
-			alignment: textCenter,
-			border: borderThin,
-			font: fontBold,
-		};
+		worksheet.getCell("L" + secondEquipmentDetail).alignment = textCenter;
+		worksheet.getCell("L" + secondEquipmentDetail).border = borderThin;
+		worksheet.getCell("L" + secondEquipmentDetail).font = fontBold;
+
 		worksheet.mergeCells(
 			"M" + secondEquipmentDetail + ":" + "N" + secondEquipmentDetail
 		);
 		worksheet.getCell("M" + secondEquipmentDetail).value = "Operator";
-		worksheet.getCell("M" + secondEquipmentDetail).style = {
-			alignment: textCenter,
-			border: borderThin,
-			font: fontBold,
-		};
+		worksheet.getCell("M" + secondEquipmentDetail).alignment = textCenter;
+		worksheet.getCell("M" + secondEquipmentDetail).border = borderThin;
+		worksheet.getCell("M" + secondEquipmentDetail).font = fontBold;
+
 		worksheet.mergeCells(
 			"O" + secondEquipmentDetail + ":" + "P" + secondEquipmentDetail
 		);
 		worksheet.getCell("O" + secondEquipmentDetail).value = "Fuel";
-		worksheet.getCell("O" + secondEquipmentDetail).style = {
-			alignment: textCenter,
-			border: borderThin,
-			font: fontBold,
-		};
+		worksheet.getCell("O" + secondEquipmentDetail).alignment = textCenter;
+		worksheet.getCell("O" + secondEquipmentDetail).border = borderThin;
+		worksheet.getCell("O" + secondEquipmentDetail).font = fontBold;
+
 		worksheet.mergeCells(
 			"Q" + secondEquipmentDetail + ":" + "R" + secondEquipmentDetail
 		);
 		worksheet.getCell("Q" + secondEquipmentDetail).value = "Start";
-		worksheet.getCell("Q" + secondEquipmentDetail).style = {
-			alignment: textCenter,
-			border: borderThin,
-			font: fontBold,
-		};
+		worksheet.getCell("Q" + secondEquipmentDetail).alignment = textCenter;
+		worksheet.getCell("Q" + secondEquipmentDetail).border = borderThin;
+		worksheet.getCell("Q" + secondEquipmentDetail).font = fontBold;
+
 		worksheet.mergeCells(
 			"S" + secondEquipmentDetail + ":" + "T" + secondEquipmentDetail
 		);
 		worksheet.getCell("S" + secondEquipmentDetail).value = "Stop";
-		worksheet.getCell("S" + secondEquipmentDetail).style = {
-			alignment: textCenter,
-			border: borderThin,
-			font: fontBold,
-		};
+		worksheet.getCell("S" + secondEquipmentDetail).alignment = textCenter;
+		worksheet.getCell("S" + secondEquipmentDetail).border = borderThin;
+		worksheet.getCell("S" + secondEquipmentDetail).font = fontBold;
+
 		worksheet.mergeCells(
 			"U" + secondEquipmentDetail + ":" + "V" + secondEquipmentDetail
 		);
 		worksheet.getCell("U" + secondEquipmentDetail).value = "Total Hours";
-		worksheet.getCell("U" + secondEquipmentDetail).style = {
-			alignment: textCenter,
-			border: borderThin,
-			font: fontBold,
-		};
+		worksheet.getCell("U" + secondEquipmentDetail).alignment = textCenter;
+		worksheet.getCell("U" + secondEquipmentDetail).border = borderThin;
+		worksheet.getCell("U" + secondEquipmentDetail).font = fontBold;
 
 		//eqipment Detail data
-		let dataEquipmentDetail =[
+		let dataEquipmentDetail = [
 			{
-				a:'DOZER E529',
-				b:'bed',
-				d:'ded',
-				f:'fed',
-				h:'hed',
-				j:'jed',
-				l:'led',
-				m:'med',
-				o:'oed',
-				q:'qed',
-				s:'sed',
-				u:'ued'
+				a: "DOZER E529",
+				b: "bed",
+				d: "ded",
+				f: "fed",
+				h: "hed",
+				j: "jed",
+				l: "led",
+				m: "med",
+				o: "oed",
+				q: "qed",
+				s: "sed",
+				u: "ued",
 			},
 			{
-				a:'DOZER E530',
-				b:'bed',
-				d:'ded',
-				f:'fed',
-				h:'hed',
-				j:'jed',
-				l:'led',
-				m:'med',
-				o:'oed',
-				q:'qed',
-				s:'sed',
-				u:'ued'
+				a: "DOZER E530",
+				b: "bed",
+				d: "ded",
+				f: "fed",
+				h: "hed",
+				j: "jed",
+				l: "led",
+				m: "med",
+				o: "oed",
+				q: "qed",
+				s: "sed",
+				u: "ued",
 			},
 			{
-				a:'DOZER E532',
-				b:'bed',
-				d:'ded',
-				f:'fed',
-				h:'hed',
-				j:'jed',
-				l:'led',
-				m:'med',
-				o:'oed',
-				q:'qed',
-				s:'sed',
-				u:'ued'
+				a: "DOZER E532",
+				b: "bed",
+				d: "ded",
+				f: "fed",
+				h: "hed",
+				j: "jed",
+				l: "led",
+				m: "med",
+				o: "oed",
+				q: "qed",
+				s: "sed",
+				u: "ued",
 			},
 			{
-				a:'DOZER E557',
-				b:'bed',
-				d:'ded',
-				f:'fed',
-				h:'hed',
-				j:'jed',
-				l:'led',
-				m:'med',
-				o:'oed',
-				q:'qed',
-				s:'sed',
-				u:'ued'
+				a: "DOZER E557",
+				b: "bed",
+				d: "ded",
+				f: "fed",
+				h: "hed",
+				j: "jed",
+				l: "led",
+				m: "med",
+				o: "oed",
+				q: "qed",
+				s: "sed",
+				u: "ued",
 			},
 			{
-				a:'DOZER E557',
-				b:'bed',
-				d:'ded',
-				f:'fed',
-				h:'hed',
-				j:'jed',
-				l:'led',
-				m:'med',
-				o:'oed',
-				q:'qed',
-				s:'sed',
-				u:'ued'
+				a: "DOZER E557",
+				b: "bed",
+				d: "ded",
+				f: "fed",
+				h: "hed",
+				j: "jed",
+				l: "led",
+				m: "med",
+				o: "oed",
+				q: "qed",
+				s: "sed",
+				u: "ued",
 			},
 			{
-				a:'DOZER E576',
-				b:'bed',
-				d:'ded',
-				f:'fed',
-				h:'hed',
-				j:'jed',
-				l:'led',
-				m:'med',
-				o:'oed',
-				q:'qed',
-				s:'sed',
-				u:'ued'
-			}
-		]
+				a: "DOZER E576",
+				b: "bed",
+				d: "ded",
+				f: "fed",
+				h: "hed",
+				j: "jed",
+				l: "led",
+				m: "med",
+				o: "oed",
+				q: "qed",
+				s: "sed",
+				u: "ued",
+			},
+		];
 
 		let startEquipmentDetailData = secondEquipmentDetail;
-		for(let i in dataEquipmentDetail){
-			startEquipmentDetailData++
-			worksheet.getCell("A"+startEquipmentDetailData).value = dataEquipmentDetail[i].a
-			worksheet.getCell("A"+startEquipmentDetailData).style = {
-				border:borderThin,
-				fill:yellowHeader
-			}
-			worksheet.mergeCells("B"+startEquipmentDetailData+":"+"C"+startEquipmentDetailData)
-			worksheet.getCell("B"+startEquipmentDetailData).value = dataEquipmentDetail[i].b
-			worksheet.getCell("B"+startEquipmentDetailData).style = {
-				border:borderThin,
-				fill:yellowHeader,
-				alignment:textCenter
-			}
-			worksheet.mergeCells("D"+startEquipmentDetailData+":"+"E"+startEquipmentDetailData)
-			worksheet.getCell("D"+startEquipmentDetailData).value = dataEquipmentDetail[i].d
-			worksheet.getCell("D"+startEquipmentDetailData+":"+"E"+startEquipmentDetailData).style = {
-				border:borderThin,
-				fill:yellowHeader,
-				alignment:textCenter
-			}
-			worksheet.mergeCells("F"+startEquipmentDetailData+":"+"G"+startEquipmentDetailData)
-			worksheet.getCell("F"+startEquipmentDetailData).value = dataEquipmentDetail[i].f
-			worksheet.getCell("F"+startEquipmentDetailData).style = {
-				border:borderThin,
-				fill:yellowHeader,
-				alignment:textCenter
-			}
+		for (let i in dataEquipmentDetail) {
+			startEquipmentDetailData++;
+			worksheet.getCell("A" + startEquipmentDetailData).value =
+				dataEquipmentDetail[i].a;
+			worksheet.getCell("A" + startEquipmentDetailData).border = borderThin;
+			worksheet.getCell("A" + startEquipmentDetailData).fill = yellowHeader;
 
-			worksheet.mergeCells("H"+startEquipmentDetailData+":"+"I"+startEquipmentDetailData)
-			worksheet.getCell("H"+startEquipmentDetailData).value = dataEquipmentDetail[i].h
-			worksheet.getCell("H"+startEquipmentDetailData).style = {
-				border:borderThin,
-				fill:yellowHeader,
-				alignment:textCenter
-			}
-			worksheet.mergeCells("J"+startEquipmentDetailData+":"+"K"+startEquipmentDetailData)
-			worksheet.getCell("J"+startEquipmentDetailData).value = dataEquipmentDetail[i].j
-			worksheet.getCell("J"+startEquipmentDetailData).style = {
-				border:borderThin,
-				fill:yellowHeader,
-				alignment:textCenter
-			}
-			worksheet.getCell("L"+startEquipmentDetailData).value = dataEquipmentDetail[i].l
-			worksheet.getCell("L"+startEquipmentDetailData).style = {
-				border:borderThin,
-				fill:yellowHeader,
-				alignment:textCenter
-			}
-			worksheet.mergeCells("M"+startEquipmentDetailData+":"+"N"+startEquipmentDetailData)
-			worksheet.getCell("M"+startEquipmentDetailData).value = dataEquipmentDetail[i].m
-			worksheet.getCell("M"+startEquipmentDetailData).style = {
-				border:borderThin,
-				fill:yellowHeader,
-				alignment:textCenter
-			}
-			worksheet.mergeCells("O"+startEquipmentDetailData+":"+"P"+startEquipmentDetailData)
-			worksheet.getCell("O"+startEquipmentDetailData).value = dataEquipmentDetail[i].o
-			worksheet.getCell("O"+startEquipmentDetailData).style = {
-				border:borderThin,
-				fill:yellowHeader,
-				alignment:textCenter
-			}
-			worksheet.mergeCells("Q"+startEquipmentDetailData+":"+"R"+startEquipmentDetailData)
-			worksheet.getCell("Q"+startEquipmentDetailData).value = dataEquipmentDetail[i].q
-			worksheet.getCell("Q"+startEquipmentDetailData).style = {
-				border:borderThin,
-				fill:yellowHeader,
-				alignment:textCenter
-			}
-			worksheet.mergeCells("S"+startEquipmentDetailData+":"+"T"+startEquipmentDetailData)
-			worksheet.getCell("S"+startEquipmentDetailData).value = dataEquipmentDetail[i].s
-			worksheet.getCell("S"+startEquipmentDetailData).style = {
-				border:borderThin,
-				fill:yellowHeader,
-				alignment:textCenter
-			}
-			worksheet.mergeCells("U"+startEquipmentDetailData+":"+"V"+startEquipmentDetailData)
-			worksheet.getCell("U"+startEquipmentDetailData).value = dataEquipmentDetail[i].u
-			worksheet.getCell("U"+startEquipmentDetailData).style = {
-				border:borderThin,
-				fill:yellowHeader,
-				alignment:textCenter
-			}
+			worksheet.mergeCells(
+				"B" + startEquipmentDetailData + ":" + "C" + startEquipmentDetailData
+			);
+			worksheet.getCell("B" + startEquipmentDetailData).value =
+				dataEquipmentDetail[i].b;
+			worksheet.getCell("B" + startEquipmentDetailData).border = borderThin;
+			worksheet.getCell("B" + startEquipmentDetailData).fill = yellowHeader;
+			worksheet.getCell("B" + startEquipmentDetailData).alignment = textCenter;
+
+			worksheet.mergeCells(
+				"D" + startEquipmentDetailData + ":" + "E" + startEquipmentDetailData
+			);
+			worksheet.getCell("D" + startEquipmentDetailData).value =
+				dataEquipmentDetail[i].d;
+			worksheet.getCell(
+				"D" + startEquipmentDetailData + ":" + "E" + startEquipmentDetailData
+			).style = {
+				border: borderThin,
+				fill: yellowHeader,
+				alignment: textCenter,
+			};
+			worksheet.mergeCells(
+				"F" + startEquipmentDetailData + ":" + "G" + startEquipmentDetailData
+			);
+			worksheet.getCell("F" + startEquipmentDetailData).value =
+				dataEquipmentDetail[i].f;
+			worksheet.getCell("F" + startEquipmentDetailData).style = {
+				border: borderThin,
+				fill: yellowHeader,
+				alignment: textCenter,
+			};
+
+			worksheet.mergeCells(
+				"H" + startEquipmentDetailData + ":" + "I" + startEquipmentDetailData
+			);
+			worksheet.getCell("H" + startEquipmentDetailData).value =
+				dataEquipmentDetail[i].h;
+			worksheet.getCell("H" + startEquipmentDetailData).style = {
+				border: borderThin,
+				fill: yellowHeader,
+				alignment: textCenter,
+			};
+			worksheet.mergeCells(
+				"J" + startEquipmentDetailData + ":" + "K" + startEquipmentDetailData
+			);
+			worksheet.getCell("J" + startEquipmentDetailData).value =
+				dataEquipmentDetail[i].j;
+			worksheet.getCell("J" + startEquipmentDetailData).style = {
+				border: borderThin,
+				fill: yellowHeader,
+				alignment: textCenter,
+			};
+			worksheet.getCell("L" + startEquipmentDetailData).value =
+				dataEquipmentDetail[i].l;
+			worksheet.getCell("L" + startEquipmentDetailData).style = {
+				border: borderThin,
+				fill: yellowHeader,
+				alignment: textCenter,
+			};
+			worksheet.mergeCells(
+				"M" + startEquipmentDetailData + ":" + "N" + startEquipmentDetailData
+			);
+			worksheet.getCell("M" + startEquipmentDetailData).value =
+				dataEquipmentDetail[i].m;
+			worksheet.getCell("M" + startEquipmentDetailData).style = {
+				border: borderThin,
+				fill: yellowHeader,
+				alignment: textCenter,
+			};
+			worksheet.mergeCells(
+				"O" + startEquipmentDetailData + ":" + "P" + startEquipmentDetailData
+			);
+			worksheet.getCell("O" + startEquipmentDetailData).value =
+				dataEquipmentDetail[i].o;
+			worksheet.getCell("O" + startEquipmentDetailData).style = {
+				border: borderThin,
+				fill: yellowHeader,
+				alignment: textCenter,
+			};
+			worksheet.mergeCells(
+				"Q" + startEquipmentDetailData + ":" + "R" + startEquipmentDetailData
+			);
+			worksheet.getCell("Q" + startEquipmentDetailData).value =
+				dataEquipmentDetail[i].q;
+			worksheet.getCell("Q" + startEquipmentDetailData).style = {
+				border: borderThin,
+				fill: yellowHeader,
+				alignment: textCenter,
+			};
+			worksheet.mergeCells(
+				"S" + startEquipmentDetailData + ":" + "T" + startEquipmentDetailData
+			);
+			worksheet.getCell("S" + startEquipmentDetailData).value =
+				dataEquipmentDetail[i].s;
+			worksheet.getCell("S" + startEquipmentDetailData).style = {
+				border: borderThin,
+				fill: yellowHeader,
+				alignment: textCenter,
+			};
+			worksheet.mergeCells(
+				"U" + startEquipmentDetailData + ":" + "V" + startEquipmentDetailData
+			);
+			worksheet.getCell("U" + startEquipmentDetailData).value =
+				dataEquipmentDetail[i].u;
+			worksheet.getCell("U" + startEquipmentDetailData).style = {
+				border: borderThin,
+				fill: yellowHeader,
+				alignment: textCenter,
+			};
 		}
 		// Notes
-		let startNotes = startEquipmentDetailData +1
-		worksheet.mergeCells("A"+startNotes+":"+"V"+startNotes)
-		worksheet.getCell("A"+startNotes).value= 'Notes'
-		worksheet.getCell("A"+startNotes).style={
-			border:borderBold,
-			fill:grayHeader,
-			alignment:textCenter
-		}
-		worksheet.mergeCells("A"+(startNotes + 1)+":"+"V"+(startNotes + 10))
-		worksheet.getCell("A"+(startNotes + 1)).value="ini notes nya summary report"
-		worksheet.getCell("A"+(startNotes + 1)).style = {
-			border:borderThin,
-			fill:yellowHeader,
-			alignment:textLeft
-		}
+		let startNotes = startEquipmentDetailData + 1;
+		worksheet.mergeCells("A" + startNotes + ":" + "V" + startNotes);
+		worksheet.getCell("A" + startNotes).value = "Notes";
+		worksheet.getCell("A" + startNotes).style = {
+			border: borderBold,
+			fill: grayHeader,
+			alignment: textCenter,
+		};
+		worksheet.mergeCells(
+			"A" + (startNotes + 1) + ":" + "V" + (startNotes + 10)
+		);
+		worksheet.getCell("A" + (startNotes + 1)).value =
+			"ini notes nya summary report";
+		worksheet.getCell("A" + (startNotes + 1)).style = {
+			border: borderThin,
+			fill: yellowHeader,
+			alignment: textLeft,
+		};
 
 		//style column
 
@@ -2100,25 +2096,276 @@ const exportExcel = async (req, res) => {
 			border: borderThin,
 		};
 
-		await workbook.xlsx.writeFile(`${path}/summary_report.xlsx`).then(() => {
-			res.download(
-				`${path}/summary_report.xlsx`,
-				"summary_report.xlsx",
-				(err) => {
-					if (err) {
-						console.log(err);
-					} else {
-						fs.unlinkSync(`${path}/summary_report.xlsx`);
+		let datePrint = `${moment().format("YYYYMMDD")}_${moment().format(
+			"HHmmss"
+		)}`;
+		await workbook.xlsx
+			.writeFile(
+				`${path}/COAL_TERMINAL_SUMMARY_REPORT_12_HOURS_SHIFT_PAGE_1_${datePrint}.xlsx`
+			)
+			.then(() => {
+				res.download(
+					`${path}/COAL_TERMINAL_SUMMARY_REPORT_12_HOURS_SHIFT_PAGE_1_${datePrint}.xlsx`,
+					`COAL_TERMINAL_SUMMARY_REPORT_12_HOURS_SHIFT_PAGE_2_${datePrint}.xlsx`,
+					(err) => {
+						if (err) {
+							console.log(err);
+						} else {
+							fs.unlinkSync(
+								`${path}/COAL_TERMINAL_SUMMARY_REPORT_12_HOURS_SHIFT_PAGE_2_${datePrint}.xlsx`
+							);
+						}
 					}
-				}
-			);
-		});
+				);
+			});
 	} catch (error) {
 		console.log(error);
 		res.json({ status: "failed" });
 	}
 };
 
+const exportExcelPage2 = async (req, res) => {
+	try {
+		const wb = new ExcelJS.Workbook();
+		const ws = wb.addWorksheet("Page 2", {
+			properties: { tabColor: { argb: "FFC0000" } },
+		});
+		const path = "./file";
+
+		ws.mergeCells("A1:U1");
+		ws.getCell("A1").value = "COAL TERMINAL SUMMARY REPORT 12 HOURS SHIFT";
+		ws.getCell("A1").font = fontBolder;
+		ws.getCell("A1").alignment = textCenter;
+
+		ws.mergeCells("O2:Q2");
+		ws.getCell("O2").value = "DATE";
+		ws.getCell("O2").font = fontBold;
+		ws.getCell("O2").alignment = textCenter;
+		ws.getCell("O2").border = borderBold;
+		ws.getCell("O2").fill = grayHeader;
+
+		ws.mergeCells("O3:Q3");
+		ws.getCell("O3").value = moment().format("YYYY/MM/DD HH:mm:ss");
+		ws.getCell("O3").alignment = textCenter;
+		ws.getCell("O3").border = borderThin;
+
+		ws.mergeCells("R2:T2");
+		ws.getCell("R2").value = "SHIFT";
+		ws.getCell("R2").font = fontBold;
+		ws.getCell("R2").alignment = textCenter;
+		ws.getCell("R2").border = borderBold;
+		ws.getCell("R2").fill = grayHeader;
+
+		ws.mergeCells("R3:T3");
+		ws.getCell("R3").value = "MALAM";
+		ws.getCell("R3").alignment = textCenter;
+		ws.getCell("R3").border = borderThin;
+
+		ws.mergeCells("U2:W2");
+		ws.getCell("U2").value = "CREW";
+		ws.getCell("U2").font = fontBold;
+		ws.getCell("U2").alignment = textCenter;
+		ws.getCell("U2").border = borderBold;
+		ws.getCell("U2").fill = grayHeader;
+
+		ws.mergeCells("U3:W3");
+		ws.getCell("U3").value = "PAK ANAS";
+		ws.getCell("U3").alignment = textCenter;
+		ws.getCell("U3").border = borderThin;
+
+		ws.mergeCells("A4:W4");
+		ws.getCell("A4").value = "DELAY DETAIL";
+		ws.getCell("A4").font = fontBold;
+		ws.getCell("A4").alignment = textCenter;
+		ws.getCell("A4").border = borderBold;
+		ws.getCell("A4").fill = grayHeader;
+
+		ws.mergeCells("A5:B5");
+		ws.getCell("A5").value = "Stream";
+		ws.getCell("A5").font = fontBold;
+		ws.getCell("A5").alignment = textCenter;
+		ws.getCell("A5").border = borderThin;
+
+		ws.mergeCells("C5:D5");
+		ws.getCell("C5").value = "Start";
+		ws.getCell("C5").font = fontBold;
+		ws.getCell("C5").alignment = textCenter;
+		ws.getCell("C5").border = borderThin;
+
+		ws.mergeCells("E5:F5");
+		ws.getCell("E5").value = "Stop";
+		ws.getCell("E5").font = fontBold;
+		ws.getCell("E5").alignment = textCenter;
+		ws.getCell("E5").border = borderThin;
+
+		ws.mergeCells("G5:H5");
+		ws.getCell("G5").value = "Delay Time";
+		ws.getCell("G5").font = fontBold;
+		ws.getCell("G5").alignment = textCenter;
+		ws.getCell("G5").border = borderThin;
+
+		ws.mergeCells("I5:J5");
+		ws.getCell("I5").value = "Delay Cat";
+		ws.getCell("I5").font = fontBold;
+		ws.getCell("I5").alignment = textCenter;
+		ws.getCell("I5").border = borderThin;
+
+		ws.mergeCells("K5:L5");
+		ws.getCell("K5").value = "Equipment";
+		ws.getCell("K5").font = fontBold;
+		ws.getCell("K5").alignment = textCenter;
+		ws.getCell("K5").border = borderThin;
+
+		ws.mergeCells("M5:N5");
+		ws.getCell("M5").value = "Delay Code";
+		ws.getCell("M5").font = fontBold;
+		ws.getCell("M5").alignment = textCenter;
+		ws.getCell("M5").border = borderThin;
+
+		ws.mergeCells("O5:W5");
+		ws.getCell("O5").value = "Comment";
+		ws.getCell("O5").font = fontBold;
+		ws.getCell("O5").alignment = textCenter;
+		ws.getCell("O5").border = borderThin;
+
+		let data = [
+			{
+				straem: "straem 1",
+				start: "2024/05/08 10:00:00",
+				stop: "2024/05/08 19:00:00",
+				delay_time: "9 hours",
+				delay_cat: "unknown",
+				delay_coce: "unknown_code",
+				comment: "no comment",
+			},
+			{
+				straem: "straem 1",
+				start: "2024/05/08 10:00:00",
+				stop: "2024/05/08 19:00:00",
+				delay_time: "9 hours",
+				delay_cat: "unknown",
+				delay_coce: "unknown_code",
+				comment: "no comment",
+			},
+			{
+				straem: "straem 1",
+				start: "2024/05/08 10:00:00",
+				stop: "2024/05/08 19:00:00",
+				delay_time: "9 hours",
+				delay_cat: "unknown",
+				delay_coce: "unknown_code",
+				comment: "no comment",
+			},
+			{
+				straem: "straem 1",
+				start: "2024/05/08 10:00:00",
+				stop: "2024/05/08 19:00:00",
+				delay_time: "9 hours",
+				delay_cat: "unknown",
+				delay_coce: "unknown_code",
+				comment: "no comment",
+			},
+			{
+				straem: "straem 1",
+				start: "2024/05/08 10:00:00",
+				stop: "2024/05/08 19:00:00",
+				delay_time: "9 hours",
+				delay_cat: "unknown",
+				delay_coce: "unknown_code",
+				comment: "no comment",
+			},
+			{
+				straem: "straem 1",
+				start: "2024/05/08 10:00:00",
+				stop: "2024/05/08 19:00:00",
+				delay_time: "9 hours",
+				delay_cat: "unknown",
+				delay_coce: "unknown_code",
+				comment: "no comment",
+			},
+			{
+				straem: "straem 1",
+				start: "2024/05/08 10:00:00",
+				stop: "2024/05/08 19:00:00",
+				delay_time: "9 hours",
+				delay_cat: "unknown",
+				equipment: "CRUSHER",
+				delay_code: "unknown_code",
+				comment: "no comment",
+			},
+		];
+
+		let startData = 5;
+
+		for (let i in data) {
+			startData++;
+			ws.mergeCells("A" + startData + ":" + "B" + startData);
+			ws.getCell("A" + startData).value = data[i].straem;
+			ws.getCell("A" + startData).alignment = textCenter;
+			ws.getCell("A" + startData).border = borderThin;
+
+			ws.mergeCells("C" + startData + ":" + "D" + startData);
+			ws.getCell("C" + startData).value = data[i].start;
+			ws.getCell("C" + startData).alignment = textCenter;
+			ws.getCell("C" + startData).border = borderThin;
+
+			ws.mergeCells("E" + startData + ":" + "F" + startData);
+			ws.getCell("E" + startData).value = data[i].stop;
+			ws.getCell("E" + startData).alignment = textCenter;
+			ws.getCell("E" + startData).border = borderThin;
+
+			ws.mergeCells("G" + startData + ":" + "H" + startData);
+			ws.getCell("G" + startData).value = data[i].delay_time;
+			ws.getCell("G" + startData).alignment = textCenter;
+			ws.getCell("G" + startData).border = borderThin;
+
+			ws.mergeCells("I" + startData + ":" + "J" + startData);
+			ws.getCell("I" + startData).value = data[i].delay_cat;
+			ws.getCell("I" + startData).alignment = textCenter;
+			ws.getCell("I" + startData).border = borderThin;
+
+			ws.mergeCells("K" + startData + ":" + "L" + startData);
+			ws.getCell("K" + startData).value = data[i].equipment;
+			ws.getCell("K" + startData).alignment = textCenter;
+			ws.getCell("K" + startData).border = borderThin;
+
+			ws.mergeCells("M" + startData + ":" + "N" + startData);
+			ws.getCell("M" + startData).value = data[i].delay_code;
+			ws.getCell("M" + startData).alignment = textCenter;
+			ws.getCell("M" + startData).border = borderThin;
+
+			ws.mergeCells("O" + startData + ":" + "W" + startData);
+			ws.getCell("O" + startData).value = data[i].comment;
+			ws.getCell("O" + startData).alignment = textCenter;
+			ws.getCell("O" + startData).border = borderThin;
+		}
+
+		let datePrint = `${moment().format("YYYYMMDD")}_${moment().format(
+			"HHmmss"
+		)}`;
+		await wb.xlsx
+			.writeFile(
+				`${path}/COAL_TERMINAL_SUMMARY_REPORT_12_HOURS_SHIFT_PAGE_2_${datePrint}.xlsx`
+			)
+			.then(() => {
+				res.download(
+					`${path}/COAL_TERMINAL_SUMMARY_REPORT_12_HOURS_SHIFT_PAGE_2_${datePrint}.xlsx`,
+					`COAL_TERMINAL_SUMMARY_REPORT_12_HOURS_SHIFT_PAGE_2_${datePrint}.xlsx`,
+					(err) => {
+						if (err) {
+							console.log(err);
+						} else {
+							fs.unlinkSync(
+								`${path}/COAL_TERMINAL_SUMMARY_REPORT_12_HOURS_SHIFT_PAGE_2_${datePrint}.xlsx`
+							);
+						}
+					}
+				);
+			});
+	} catch (error) {}
+};
+
 module.exports = {
 	exportExcel,
+	exportExcelPage2,
 };

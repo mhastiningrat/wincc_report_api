@@ -20,6 +20,11 @@ const fontBold = {
 	bold: true,
 };
 
+const fontBolder = {
+	bold: true,
+	size: 22,
+};
+
 const textCenter = { vertical: "middle", horizontal: "center" };
 const textLeft = { vertical: "middle", horizontal: "left" };
 const textRight = { vertical: "middle", horizontal: "right" };
@@ -47,5 +52,6 @@ module.exports = {
 	textRight,
 	borderBold,
 	borderThin,
-	cocoHeader
+	cocoHeader,
+	fontBolder,
 };
